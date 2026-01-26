@@ -18,43 +18,7 @@
       "description": "This one is more personal, but we all start out our day getting out of bed, this is mine levitating away.",
       "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
     },
-    {
-      "id": "academic-rite",
-      "title": "Academic Rite",
-      "year": "2022",
-      "medium": "Oil on canvas",
-      "dimensions": "370 x 213 cm.",
-      "description": "An exploration of academic traditions, power struggles within, and their impact on creative expression.",
-      "image": "images/Rafael Yaluff - Academic Rite.jpg"
-    },
-    {
-      "id": "hide-it-under-your-tongue",
-      "title": "Hide it under your tongue",
-      "year": "2021",
-      "medium": "Tar and oil on canvas",
-      "dimensions": "75 x 75 cm.",
-      "description": "In the insane asylum, when forced to take the pill. Hide it under your tongue, then spit it out at your reflection mirror.",
-      "image": "images/Hide it under your tongue - Rafael Yaluff.jpg"
-    },
-    {
-      "id": "traffic-light-and-birthing",
-      "title": "Traffic light & birthing",
-      "year": "2022",
-      "medium": "Oil and epoxy molds on canvas",
-      "dimensions": "122 x 91 cm.",
-      "description": "Hunger on green, hunger on red. If turned around, images of birth.",
-      "image": "images/Rafael Yaluff - Traffic light & birthing .jpg"
-    },
-    {
-      "id": "kingdom",
-      "title": "Kingdom",
-      "year": "2022",
-      "medium": "Tar and oil on canvas",
-      "dimensions": "110 x 110 cm.",
-      "description": "Finding time to look at flowers within tar and ripped out political posters",
-      "image": "images/Rafael Yaluff - Kingdom.jpg"
-    },
-    {
+        {
       "id": "phil-and-me-yes-rally",
       "title": "Phil and me in the Yes rally in 1988",
       "year": "2021",
@@ -72,6 +36,42 @@
       "description": "Venus surrounded by the unforgiving solar winds, sunset fades, words burn, I see her through fear. She carries everything I don’t understand, the weight of a future bigger than me.",
       "image": "images/Rafael Yaluff_Pregnant Anna_2023_Oil on canvas_66x85in.jpg"
     },
+        {
+      "id": "kingdom",
+      "title": "Kingdom",
+      "year": "2022",
+      "medium": "Tar and oil on canvas",
+      "dimensions": "110 x 110 cm.",
+      "description": "Finding time to look at flowers within tar and ripped out political posters",
+      "image": "images/Rafael Yaluff - Kingdom.jpg"
+    },
+    {
+      "id": "hide-it-under-your-tongue",
+      "title": "Hide it under your tongue",
+      "year": "2021",
+      "medium": "Tar and oil on canvas",
+      "dimensions": "75 x 75 cm.",
+      "description": "In the insane asylum, when forced to take the pill. Hide it under your tongue, then spit it out at your reflection mirror.",
+      "image": "images/Hide it under your tongue - Rafael Yaluff.jpg"
+    },
+        {
+      "id": "sm-map",
+      "title": "Mapa sadomasoquista",
+      "year": "2022",
+      "medium": "Oil on canvas",
+      "dimensions": "157 x 132 cm.",
+      "description": "Bruises draw maps on San Marzano tomatoes that disappear.",
+      "image": "images/Rafael Yaluff SM MAP RAFAEL YALUFF copy.jpg"
+    },
+    {
+      "id": "traffic-light-and-birthing",
+      "title": "Traffic light & birthing",
+      "year": "2022",
+      "medium": "Oil and epoxy molds on canvas",
+      "dimensions": "122 x 91 cm.",
+      "description": "Hunger on green, hunger on red. If turned around, images of birth.",
+      "image": "images/Rafael Yaluff - Traffic light & birthing .jpg"
+    },
     {
       "id": "the-house-that-raf-built",
       "title": "The house that Raf built",
@@ -81,14 +81,14 @@
       "description": "An architectural metaphor for personal identity: Parrodical depiction of the psycho-killer movie (The House that Jack Built) - But really about the bloody bunker within.",
       "image": "images/Rafael Yaluff - The house that Raf built.jpg"
     },
-    {
-      "id": "latinamerican-ghosts",
-      "title": "Latinamerican ghosts",
-      "year": "2021",
+            {
+      "id": "academic-rite",
+      "title": "Academic Rite",
+      "year": "2022",
       "medium": "Oil on canvas",
-      "dimensions": "123 x 183 cm.",
-      "description": "A haunting meditation on historical memory and political aspirations in Latin America.",
-      "image": "images/Latinamerican ghosts - Rafael Yaluff.jpg"
+      "dimensions": "370 x 213 cm.",
+      "description": "An exploration of academic traditions, power struggles within, and their impact on creative expression.",
+      "image": "images/Rafael Yaluff - Academic Rite.jpg"
     },
     {
       "id": "lumpenproletariat",
@@ -125,15 +125,6 @@
       "dimensions": "183 x 121 cm.",
       "description": "A desire to scream freedom, burns deep inside of me, in every conversation, taking away my posible friends, a hymn of freedom like drums like bells, strips me from fear, sets me alone, the next day I mourn, making future promises of silence, until I regain strength one more.",
       "image": "images/Rafael Yaluff - Promises of silence.jpg"
-    },
-    {
-      "id": "sm-map",
-      "title": "Mapa sadomasoquista",
-      "year": "2022",
-      "medium": "Oil on canvas",
-      "dimensions": "157 x 132 cm.",
-      "description": "Bruises draw maps on San Marzano tomatoes that disappear.",
-      "image": "images/Rafael Yaluff SM MAP RAFAEL YALUFF copy.jpg"
     },
     {
       "id": "flowers",
