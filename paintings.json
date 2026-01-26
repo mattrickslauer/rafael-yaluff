@@ -9,6 +9,15 @@
       "description": "Santiago in a winter afternoon",
       "image": "images/Umgekehrte Verkündigung.jpg"
     },
+        {
+      "id": "sara-se-parece",
+      "title": "Sara se parece a mi mama",
+      "year": "2023",
+      "medium": "Oil on canvas",
+      "dimensions": "244 x 183 cm.",
+      "description": "This one is more personal, but we all start out our day getting out of bed, this is mine levitating away.",
+      "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
+    },
     {
       "id": "academic-rite",
       "title": "Academic Rite",
@@ -125,15 +134,6 @@
       "dimensions": "157 x 132 cm.",
       "description": "Bruises draw maps on San Marzano tomatoes that disappear.",
       "image": "images/Rafael Yaluff SM MAP RAFAEL YALUFF copy.jpg"
-    },
-    {
-      "id": "sara-se-parece",
-      "title": "Sara se parece a mi mama",
-      "year": "2023",
-      "medium": "Oil on canvas",
-      "dimensions": "244 x 183 cm.",
-      "description": "This one is more personal, but we all start out our day getting out of bed, this is mine levitating away.",
-      "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
     },
     {
       "id": "flowers",
