@@ -19,15 +19,6 @@
       "image": "images/Rafael Yaluff - Academic Rite.jpg"
     },
     {
-      "id": "gardener",
-      "title": "Gardener",
-      "year": "2019",
-      "medium": "Oil and acrylic on canvas",
-      "dimensions": "170 x 170 cm.",
-      "description": "Pastoral spring Sunday, operating conceptual machinery, passing through in leather black, family memories of embrace now self provide",
-      "image": "images/Rafael Yaluff_Gardener_2019_Oil and acrylic on canvas_67x67in.jpg"
-    },
-    {
       "id": "hide-it-under-your-tongue",
       "title": "Hide it under your tongue",
       "year": "2021",
@@ -89,15 +80,6 @@
       "dimensions": "123 x 183 cm.",
       "description": "A haunting meditation on historical memory and political aspirations in Latin America.",
       "image": "images/Latinamerican ghosts - Rafael Yaluff.jpg"
-    },
-    {
-      "id": "moving-job",
-      "title": "Moving Job",
-      "year": "2021",
-      "medium": "Oil on canvas",
-      "dimensions": "75 x 75 cm.",
-      "description": "A dynamic representation of labor, transition, and physical burden.",
-      "image": "images/Moving Job - Rafael Yaluff.jpg"
     },
     {
       "id": "lumpenproletariat",
@@ -162,5 +144,14 @@
       "description": "Flowers glow bright against a black void, sedate me, suspend me, anesthesia after love.",
       "image": "images/Flowers hhhh copy.jpg"
     }
+        {
+      "id": "gardener",
+      "title": "Gardener",
+      "year": "2019",
+      "medium": "Oil and acrylic on canvas",
+      "dimensions": "170 x 170 cm.",
+      "description": "Pastoral spring Sunday, operating conceptual machinery, passing through in leather black, family memories of embrace now self provide",
+      "image": "images/Rafael Yaluff_Gardener_2019_Oil and acrylic on canvas_67x67in.jpg"
+    },
   ]
 } 
