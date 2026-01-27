@@ -90,15 +90,6 @@
       "description": "An architectural metaphor for personal identity: Parrodical depiction of the psycho-killer movie (The House that Jack Built) - But really about the bloody bunker within.",
       "image": "images/Rafael Yaluff - The house that Raf built.jpg"
     },
-            {
-      "id": "academic-rite",
-      "title": "Academic Rite",
-      "year": "2022",
-      "medium": "Oil on canvas",
-      "dimensions": "370 x 213 cm.",
-      "description": "An exploration of academic traditions, power struggles within, and their impact on creative expression.",
-      "image": "images/Rafael Yaluff - Academic Rite.jpg"
-    },
     {
       "id": "lumpenproletariat",
       "title": "Lumpenproletariat",
@@ -134,6 +125,15 @@
       "dimensions": "183 x 121 cm.",
       "description": "A desire to scream freedom, burns deep inside of me, in every conversation, taking away my posible friends, a hymn of freedom like drums like bells, strips me from fear, sets me alone, the next day I mourn, making future promises of silence, until I regain strength one more.",
       "image": "images/Rafael Yaluff - Promises of silence.jpg"
+    },
+                {
+      "id": "academic-rite",
+      "title": "Academic Rite",
+      "year": "2022",
+      "medium": "Oil on canvas",
+      "dimensions": "370 x 213 cm.",
+      "description": "An exploration of academic traditions, power struggles within, and their impact on creative expression.",
+      "image": "images/Rafael Yaluff - Academic Rite.jpg"
     },
   ]
 } 
