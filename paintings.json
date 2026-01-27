@@ -15,7 +15,7 @@
       "year": "2025",
       "medium": "Oil on canvas",
       "dimensions": "230 x 210 cm.",
-      "description": "",
+      "description": ".",
       "image": "images/Moi et Phill dans la caravane du Si en 1988 - Version 1.jpg"
     },
         {
@@ -24,7 +24,7 @@
       "year": "2025",
       "medium": "Oil on canvas",
       "dimensions": "230 x 210 cm.",
-      "description": "",
+      "description": ".",
       "image": "images/Moi et Phill dans la caravane du Si en 1988 - Version 2.jpg"
     },
         {
@@ -33,7 +33,7 @@
       "year": "2025",
       "medium": "Oil on canvas",
       "dimensions": "230 x 210 cm.",
-      "description": "",
+      "description": ".",
       "image": "images/Moi et Phill dans la caravane du Si en 1988 - Version 3.jpg"
     },
         {
@@ -42,7 +42,7 @@
       "year": "2023",
       "medium": "Oil on canvas",
       "dimensions": "244 x 183 cm.",
-      "description": "This one is more personal, but we all start out our day getting out of bed, this is mine levitating away.",
+      "description": "Bed levitating away.",
       "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
     },
         {
@@ -51,7 +51,7 @@
       "year": "2021",
       "medium": "Oil on canvas",
       "dimensions": "167 x 216 cm.",
-      "description": "My mom used to take me and my brother to the pro-Pinochet rallies when we were kids. I wonder about stories reincarnated today.",
+      "description": "My mom used to take me and my brother to the pro-dictatorship rallies when we were kids",
       "image": "images/Rafael Yaluff - Phil and me in the Yes rally in 1988 .jpg"
     },
     {
@@ -60,7 +60,7 @@
       "year": "2023",
       "medium": "Oil on canvas",
       "dimensions": "167 x 216 cm.",
-      "description": "Venus surrounded by the unforgiving solar winds, sunset fades, words burn, I see her through fear. She carries everything I don’t understand, the weight of a future bigger than me.",
+      "description": "Surrounded by the unforgiving solar winds, sunset fades, words burn, I see her through fear. She carries everything I don’t understand, the weight of a future bigger than me.",
       "image": "images/Rafael Yaluff_Pregnant Anna_2023_Oil on canvas_66x85in.jpg"
     },
         {
@@ -69,7 +69,7 @@
       "year": "2022",
       "medium": "Tar and oil on canvas",
       "dimensions": "110 x 110 cm.",
-      "description": "Finding time to look at flowers within tar and ripped out political posters",
+      "description": "Finding time to look at flowers in tar",
       "image": "images/Rafael Yaluff - Kingdom.jpg"
     },
     {
@@ -80,24 +80,6 @@
       "dimensions": "75 x 75 cm.",
       "description": "In the insane asylum, when forced to take the pill. Hide it under your tongue, then spit it out at your reflection mirror.",
       "image": "images/Hide it under your tongue - Rafael Yaluff.jpg"
-    },
-        {
-      "id": "sm-map",
-      "title": "Mapa sadomasoquista",
-      "year": "2022",
-      "medium": "Oil on canvas",
-      "dimensions": "157 x 132 cm.",
-      "description": "Bruises draw maps on San Marzano tomatoes that disappear.",
-      "image": "images/Rafael Yaluff SM MAP RAFAEL YALUFF copy.jpg"
-    },
-    {
-      "id": "traffic-light-and-birthing",
-      "title": "Traffic light & birthing",
-      "year": "2022",
-      "medium": "Oil and epoxy molds on canvas",
-      "dimensions": "122 x 91 cm.",
-      "description": "Hunger on green, hunger on red. If turned around, images of birth.",
-      "image": "images/Rafael Yaluff - Traffic light & birthing .jpg"
     },
     {
       "id": "the-house-that-raf-built",
@@ -153,23 +135,5 @@
       "description": "A desire to scream freedom, burns deep inside of me, in every conversation, taking away my posible friends, a hymn of freedom like drums like bells, strips me from fear, sets me alone, the next day I mourn, making future promises of silence, until I regain strength one more.",
       "image": "images/Rafael Yaluff - Promises of silence.jpg"
     },
-    {
-      "id": "flowers",
-      "title": "Methadone",
-      "year": "2019",
-      "medium": "Oil and spray on canvas",
-      "dimensions": "160 x 160 cm.",
-      "description": "Flowers glow bright against a black void, sedate me, suspend me, anesthesia after love.",
-      "image": "images/Flowers hhhh copy.jpg"
-    },
-        {
-      "id": "gardener",
-      "title": "Gardener",
-      "year": "2019",
-      "medium": "Oil and acrylic on canvas",
-      "dimensions": "170 x 170 cm.",
-      "description": "Pastoral spring Sunday, operating conceptual machinery, passing through in leather black, family memories of embrace now self provide",
-      "image": "images/Rafael Yaluff_Gardener_2019_Oil and acrylic on canvas_67x67in.jpg"
-    }
   ]
 } 
