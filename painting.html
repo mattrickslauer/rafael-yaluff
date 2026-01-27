@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="images/favicon.jpg" type="image/jpeg">
     <style>
-        /* ===== Fullscreen button ===== */
         .fullscreen-btn {
             position: absolute;
             top: 15px;
@@ -35,33 +34,10 @@
             height: 20px;
         }
 
-        /* ===== Painting container: single column ===== */
-        .painting-container {
-            display: flex;
-            flex-direction: column; /* single column */
-            align-items: center;    /* center content */
-            gap: 20px;
-        }
-
         .painting-image {
-            width: 100%;
-            max-width: 900px; /* optional max width */
             position: relative;
         }
-
-        .painting-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .painting-info {
-            width: 100%;
-            max-width: 900px;
-            text-align: center;
-        }
-
-        /* ===== Fullscreen view ===== */
+        
         .fullscreen-view {
             position: fixed;
             top: 0;
@@ -87,7 +63,7 @@
             height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            alignments: center;
             transform-origin: center;
         }
         
@@ -97,14 +73,14 @@
             object-fit: contain;
             transform-origin: center;
         }
-
-        /* ===== Exit & Info buttons ===== */
-        .exit-fullscreen, .info-fullscreen {
+        
+        .exit-fullscreen {
             position: absolute;
             top: 20px;
+            right: 20px;
             background: rgba(255, 255, 255, 0.3);
-            border: 2px solid;
-            color: inherit;
+            border: 2px solid red;
+            color: red;
             font-size: 48px;
             font-weight: bold;
             cursor: pointer;
@@ -119,26 +95,39 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             transition: all 0.2s ease;
         }
-
-        .exit-fullscreen:hover, .info-fullscreen:hover {
+        
+        .exit-fullscreen:hover {
             background: rgba(255, 255, 255, 0.5);
             transform: scale(1.1);
         }
 
-        .exit-fullscreen {
-            right: 20px;
-            border-color: red;
-            color: red;
-        }
-
         .info-fullscreen {
-            right: 100px;
-            top: 20px;
-            border-color: blue;
+            position: absolute;
+            top: 100px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid blue;
             color: blue;
+            font-size: 48px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.2s ease;
+        }
+        
+        .info-fullscreen:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
         }
 
-        /* ===== Info overlay ===== */
         .painting-info-overlay {
             position: fixed;
             bottom: 0;
@@ -166,10 +155,88 @@
             margin: 10px 0;
         }
 
-        /* ===== Responsive adjustments ===== */
+        /* Navigation buttons styles */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-prev {
+            left: 20px;
+        }
+        
+        .nav-next {
+            right: 20px;
+        }
+
+        .fullscreen-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            z-index: 1001;
+            transition: all 0.2s ease;
+        }
+        
+        .fullscreen-nav-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .fullscreen-nav-prev {
+            left: 20px;
+        }
+        
+        .fullscreen-nav-next {
+            right: 20px;
+        }
+
+        /* Swipe indicator */
+        .swipe-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: none;
+            z-index: 1001;
+        }
+
         @media (max-width: 768px) {
-            .painting-info {
-                padding: 0 15px;
+            .swipe-indicator {
+                display: block;
             }
         }
     </style>
@@ -189,6 +256,8 @@
                             <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
                         </svg>
                     </button>
+                    <!-- <button class="nav-button nav-prev" onclick="navigatePainting('prev')">❮</button>
+                    <button class="nav-button nav-next" onclick="navigatePainting('next')">❯</button> -->
                 </div>
                 <div class="painting-info">
                     <h2 id="painting-title-heading"></h2>
@@ -203,18 +272,25 @@
         <footer>
             <p>© 2025 Rafael Yaluff. All Rights Reserved.</p>
             <div class="social-links">
-                <!-- Social SVG links remain unchanged -->
+                <a href="https://www.instagram.com/xoltzpopov/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771-4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
             </div>
         </footer>
     </div>
 
-    <!-- Fullscreen View -->
+    <!-- Fullscreen View Container -->
     <div class="fullscreen-view" id="fullscreen-view">
         <button class="exit-fullscreen" onclick="closeFullscreen()">×</button>
         <button class="info-fullscreen" onclick="toggleInfoOverlay()">i</button>
+        <!-- <button class="fullscreen-nav-button fullscreen-nav-prev" onclick="navigatePainting('prev')">❮</button>
+        <button class="fullscreen-nav-button fullscreen-nav-next" onclick="navigatePainting('next')">❯</button> -->
         <div class="image-container" id="zoomable-container">
             <img id="fullscreen-img" src="" alt="">
         </div>
+        <div class="swipe-indicator">Swipe left or right to navigate</div>
         <div class="painting-info-overlay" id="painting-info-overlay">
             <h2 id="overlay-painting-title"></h2>
             <p id="overlay-painting-year"></p>
@@ -225,9 +301,96 @@
     </div>
 
     <script>
-        // === Your existing JavaScript remains unchanged ===
-        // loadPaintingData, navigatePainting, fullscreen, zoom, overlay, etc.
-        // I did not touch it; it works with the new single-column layout
+    // Global variables for painting data
+    let allPaintings = [];
+    let currentPaintingIndex = 0;
+
+    function toggleMobileMenu() {
+        // This function is no longer needed but kept for compatibility
+    }
+
+    // Get painting ID from URL
+    function getPaintingId() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
+    }
+
+    // Load painting data
+    function loadPaintingData() {
+        const paintingId = getPaintingId();
+        
+        // if (!paintingId) {
+        //     window.location.href = 'gallery.html';
+        //     return;
+        // }
+
+        fetch('paintings.json')
+            .then(response => response.json())
+            .then(data => {
+                // Store all paintings
+                allPaintings = data.paintings;
+                
+                // Find current painting index
+                currentPaintingIndex = allPaintings.findIndex(p => p.id === paintingId);
+                
+                if (currentPaintingIndex === -1) {
+                    currentPaintingIndex = 0; // Default to first painting if ID not found
+                }
+                
+                displayCurrentPainting();
+                setupNavigationListeners();
+            })
+            .catch(error => {
+                console.error('Error loading painting data:', error);
+                window.location.href = 'index.html';
+            });
+    }
+
+    // Display the current painting
+    function displayCurrentPainting() {
+        const painting = allPaintings[currentPaintingIndex];
+        
+        // Update URL without refreshing the page
+        const newUrl = `painting.html?id=${painting.id}`;
+        history.pushState({ paintingId: painting.id }, '', newUrl);
+        
+        // Update page with painting data
+        document.title = `${painting.title} | Rafael Yaluff`;
+        document.getElementById('painting-title-heading').textContent = painting.title;
+        document.getElementById('painting-year').textContent = painting.year;
+        document.getElementById('painting-medium').textContent = painting.medium;
+        document.getElementById('painting-dimensions').textContent = painting.dimensions;
+        document.getElementById('painting-description').textContent = painting.description;
+        
+        const img = document.getElementById('painting-img');
+        img.src = painting.image;
+        img.alt = painting.title;
+
+        // Also set the fullscreen image
+        document.getElementById('fullscreen-img').src = painting.image;
+        document.getElementById('fullscreen-img').alt = painting.title;
+        
+        // Set the overlay information
+        document.getElementById('overlay-painting-title').textContent = painting.title;
+        document.getElementById('overlay-painting-year').textContent = painting.year;
+        document.getElementById('overlay-painting-medium').textContent = painting.medium;
+        document.getElementById('overlay-painting-dimensions').textContent = painting.dimensions;
+        document.getElementById('overlay-painting-description').textContent = painting.description;
+        
+        // Reset zoom when changing paintings
+        resetZoom();
+    }
+
+    // Navigate to previous or next painting
+    function navigatePainting(direction) {
+        if (direction === 'prev') {
+            currentPaintingIndex = (currentPaintingIndex - 1 + allPaintings.length) % allPaintings.length;
+        } else if (direction === 'next') {
+            currentPaintingIndex = (currentPaintingIndex + 1) % allPaintings.length;
+        }
+        
+        displayCurrentPainting();
+    }
     </script>
 </body>
 </html>
