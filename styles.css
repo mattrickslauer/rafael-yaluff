@@ -17,8 +17,8 @@
 
 body {
     font-family: 'Roboto Mono', monospace;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: rgb(253, 246, 227);
+    color: rgb(30, 30, 30);
     line-height: 1.6;
     overflow-x: hidden;
 }
