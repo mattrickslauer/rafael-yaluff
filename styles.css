@@ -344,7 +344,6 @@ a img {
 .cv-section, 
 .cv-section h2, 
 .cv-section h3, 
-    color: #00FF00;
 .exhibition-list, 
 .exhibition-list p {
     color:  #888888;
@@ -382,7 +381,7 @@ a img {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
-    color: var(--black);
+    color: #00ff00;
 }
 
 .about-text h2::after {
