@@ -354,8 +354,8 @@ nav ul li a.active::after {
     width: 100%;
     filter: grayscale(100%);
     transition: filter 0.5s ease;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 .about-image:hover img {
