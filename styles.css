@@ -318,6 +318,17 @@ nav ul li a.active::after {
 }
 
 /* About Page */
+
+.cv-section, 
+.cv-section h2, 
+.cv-section h3, 
+.exhibition-list, 
+.exhibition-list p {
+    color:  var(--white);
+    
+    font-weight: 600;
+}
+
 .about {
     margin-bottom: 80px;
 }
