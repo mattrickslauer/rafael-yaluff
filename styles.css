@@ -324,7 +324,7 @@ nav ul li a.active::after {
 .cv-section h3, 
 .exhibition-list, 
 .exhibition-list p {
-    color:  var(--white);
+    color:  #00ff41;
     
     font-weight: 600;
 }
