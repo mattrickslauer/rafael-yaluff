@@ -335,13 +335,13 @@ nav ul li a.active::after {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
     grid-gap: 40px;
 }
 
 .about-image img {
     width: 100%;
-    filter: grayscale(40%);
+    filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
 
