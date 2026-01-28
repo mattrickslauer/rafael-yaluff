@@ -216,6 +216,7 @@ nav ul li a.active::after {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
 }
 
 .painting:hover img {
