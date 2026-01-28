@@ -292,6 +292,19 @@ nav ul li a.active::after {
     grid-gap: 30px;
 }
 
+/* Remove borders and outlines from all images */
+img {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Remove borders from images inside links, just in case */
+a img {
+  border: none !important;
+  outline: none !important;
+}
+
+
 .painting-item {
     margin-bottom: 30px;
     transition: transform 0.3s ease;
