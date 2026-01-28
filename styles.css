@@ -393,7 +393,7 @@ a img {
     background-color: var(--accent);
     bottom: -5px;
     left: 0;
-    color: var(--black);
+    color: #00ff00;
 }
 
 .about-text p {
