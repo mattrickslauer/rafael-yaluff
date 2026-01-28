@@ -847,7 +847,7 @@ footer {
 }
 
 .about-modal-content {
-    background-color: var(--black);
+    background-color: var(--white);
     border: 1px solid var(--light-gray);
     width: 90%;
     max-width: 1000px;
