@@ -358,7 +358,9 @@ nav ul li a.active::after {
 .about-text p {
     margin-bottom: 20px;
     font-size: 1rem;
+    color: #808080;
 }
+
 
 .contact-info {
     margin-top: 40px;
