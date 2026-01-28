@@ -274,7 +274,6 @@ nav ul li a.active::after {
     font-size: 2rem;
     position: relative;
     display: inline-block;
-    margin-left: 100px; 
 }
 
 .gallery h2::after {
