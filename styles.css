@@ -304,7 +304,9 @@ nav ul li a.active::after {
 .painting-item img {
     width: 100%;
     margin-bottom: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 100px 100px
+    color: #00ff41;
+
 }
 
 .painting-info h3 {
