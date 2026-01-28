@@ -2,10 +2,10 @@
     "exhibitions": [
                 {
             "title": "Open Studio",
+            "Type": "Studio",
             "Year": "2025",
-            "Venue": "Santiago (CHI)",
-                    
-            "image": "images/exhibitions/studio video 2025.mp4"
+            "Venue": "Santiago (CHI)",  
+            "image": "images/exhibitions/20250531_193231.jpg"
         },
         {
             "title": "The New Pop Chilean Song",
