@@ -330,7 +330,7 @@ nav ul li a.active::after {
 
 .about-image img {
     width: 100%;
-    filter: grayscale(70%);
+    filter: grayscale(40%);
     transition: filter 0.5s ease;
 }
 
@@ -343,6 +343,7 @@ nav ul li a.active::after {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
+    color: var(--white);
 }
 
 .about-text h2::after {
@@ -353,6 +354,7 @@ nav ul li a.active::after {
     background-color: var(--accent);
     bottom: -5px;
     left: 0;
+    color: var(--white);
 }
 
 .about-text p {
@@ -366,11 +368,13 @@ nav ul li a.active::after {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid var(--light-gray);
+    color: var(--white);
 }
 
 .contact-info h3 {
     margin-bottom: 15px;
     font-size: 1.2rem;
+    color: var(--white);
 }
 
 /* Footer */
@@ -379,6 +383,7 @@ footer {
     border-top: 1px solid var(--light-gray);
     text-align: center;
     font-size: 0.9rem;
+    color: var(--white);
 }
 
 .social-links {
