@@ -307,6 +307,15 @@ nav ul li a.active::after {
 
 }
 
+.painting-item img {
+    width: 100%;
+    margin-bottom: 15px;
+    border: none;       /* remove black border */
+    box-shadow: none;   /* remove any shadow */
+    outline: none;      /* remove outlines if any */
+}
+
+
 .painting-info h3 {
     font-size: 1.2rem;
     margin-bottom: 5px;
