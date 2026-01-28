@@ -871,3 +871,27 @@ footer {
 .about-modal-close:hover {
     color: var(--accent);
 }
+
+/* Floating Back to Home Button */
+.floating-btn {
+    position: fixed;       /* Stays in place while scrolling */
+    bottom: 20px;          /* Distance from bottom */
+    right: 20px;           /* Distance from right */
+    z-index: 9999;         /* On top of everything */
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50px;   /* Rounded pill shape */
+    padding: 12px 24px;    /* Slightly bigger than normal button */
+    font-size: 1rem;       /* Slightly larger font */
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for floating button */
+.floating-btn:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transform: scale(1.05); /* Slight pop effect */
+}
