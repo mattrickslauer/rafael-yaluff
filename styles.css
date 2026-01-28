@@ -208,8 +208,6 @@ nav ul li a.active::after {
     aspect-ratio: 1 / 1;
 }
 
-}
-
 .painting img {
     width: 100%;
     height: 100%;
