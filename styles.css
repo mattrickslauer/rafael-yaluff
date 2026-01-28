@@ -381,7 +381,7 @@ a img {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
-    color: #00ff00;
+    color: var(--black);
 }
 
 .about-text h2::after {
