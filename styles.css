@@ -329,11 +329,6 @@ nav ul li a.active::after {
     font-weight: 600;
 }
 
-/* Force exhibition entries to stack image over title */
-.exhibition-list > * {
-    display: block;
-    text-align: center;
-}
 
 
 .about {
@@ -380,6 +375,14 @@ nav ul li a.active::after {
     font-size: 1rem;
     color: #808080;
 }
+
+/* Add divider between exhibitions */
+.exhibition-list > * {
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
 
 
 .contact-info {
