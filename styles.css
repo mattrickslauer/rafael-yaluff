@@ -385,8 +385,6 @@ nav ul li a.active::after {
 }
 
 .about-text p {
-    margin-bottom: 20px; /* space after the paragraph (only after the last line) */
-    line-height: 1;    /* keep lines inside the paragraph closer together */
     font-size: 1rem;
     color: #808080;
 }
