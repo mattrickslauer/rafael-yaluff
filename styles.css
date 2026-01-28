@@ -329,6 +329,13 @@ nav ul li a.active::after {
     font-weight: 600;
 }
 
+/* Force exhibition entries to stack image over title */
+.exhibition-list > * {
+    display: block;
+    text-align: center;
+}
+
+
 .about {
     margin-bottom: 80px;
 }
