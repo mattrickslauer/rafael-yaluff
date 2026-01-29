@@ -898,3 +898,32 @@ footer {
 .about-modal-close:hover {
     color: var(--accent);
 }
+/* Ensure About section fits mobile screens */
+@media screen and (max-width: 768px) {
+    .about-content {
+        display: flex !important;
+        flex-direction: column !important; /* stack image + text vertically */
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    .about-image,
+    .about-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .about-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+    }
+}
+
