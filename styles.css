@@ -864,7 +864,7 @@ footer {
     right: 20px;
     font-size: 28px;
     cursor: pointer;
-    color: var(--white);
+    color: var(--black);
     transition: color 0.3s ease;
 }
 
