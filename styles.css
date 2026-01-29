@@ -860,14 +860,22 @@ footer {
 }
 
 .about-modal-close {
-    position: fixed;
-    top: 15px;
-    right: 20px;
+    position: sticky;
+    top: 0;
+    margin-left: auto;
     font-size: 28px;
     cursor: pointer;
     color: var(--black);
+    z-index: 10;
+    background: var(--white);
+    padding: 10px;
     transition: color 0.3s ease;
 }
+
+.about-modal-close:hover {
+    color: var(--accent);
+}
+
 
 
 .about-modal-close:hover {
