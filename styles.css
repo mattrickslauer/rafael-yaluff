@@ -861,14 +861,11 @@ footer {
 
 .about-modal-close {
     position: sticky;
-    top: 0;
-    margin-left: auto;
+    top: 15px;
+    right: 20px;
     font-size: 28px;
     cursor: pointer;
     color: var(--black);
-    z-index: 10;
-    background: var(--white);
-    padding: 10px;
     transition: color 0.3s ease;
 }
 
