@@ -866,6 +866,7 @@ footer {
     margin-right: 8px;
     float: right;
     font-size: 28px;
+    font-weight: 900;
     cursor: pointer;
     color: var(--black);
     z-index: 10;
