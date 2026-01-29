@@ -925,5 +925,12 @@ footer {
         height: auto !important;
         display: block;
     }
+    /* Shrink About section headings on mobile to ~2/3 size */
+@media screen and (max-width: 768px) {
+    .about-text h2,
+    .about-text h3 {
+        font-size: calc(2/3 * 2rem) !important; /* 2/3 of desktop size */
+        line-height: 1.4 !important;            /* adjust for readability */
+    }
 }
 
