@@ -678,6 +678,26 @@ footer {
         font-size: 1rem;
         padding: 12px 30px;
     }
+
+    /* About section mobile fix */
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr; /* stack vertically */
+        gap: 20px;                  /* optional spacing */
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;                /* full width */
+        padding: 0;                 /* remove extra padding */
+        box-sizing: border-box;     /* avoid overflow */
+    }
+
+    .about-image img {
+        max-width: 100%;            /* fit screen */
+        height: auto;
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
