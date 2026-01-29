@@ -862,18 +862,15 @@ footer {
 .about-modal-close {
     position: sticky;
     top: 15px;
-    right: 20px;
+    float: right;
     font-size: 28px;
     cursor: pointer;
     color: var(--black);
+    z-index: 10;
+    background: transparent;
+    padding: 5px;
     transition: color 0.3s ease;
 }
-
-.about-modal-close:hover {
-    color: var(--accent);
-}
-
-
 
 .about-modal-close:hover {
     color: var(--accent);
