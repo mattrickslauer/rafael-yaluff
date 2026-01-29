@@ -868,7 +868,7 @@ footer {
     font-size: 35px;
     font-weight: 900;
     cursor: pointer;
-    color: var(--black);
+    color: 00FF00;
     z-index: 10;
     background: transparent;
     padding: 5px;
