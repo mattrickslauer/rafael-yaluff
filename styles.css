@@ -351,6 +351,11 @@ a img {
     font-weight: 600;
 }
 
+/* Exhibition titles */
+.exhibition-list h3 {
+    color: var(--black);
+}
+
 
 
 .about {
