@@ -61,8 +61,10 @@
             "Type": "Group show with artist Tiago Madaleno",
             "Year": "2018",
             "Venue": "Otiima Artworks - Porto (PT)",
-            "image": "images/exhibitions/karaoke 1.jpg",
-            "image": "images/exhibitions/karaoke 2.jpg"
+           "images": [
+           "images/exhibitions/karaoke 1.jpg",
+           "images/exhibitions/karaoke 2.jpg"
+        ]
         },
         {
             "title": "The Blue Mask",
@@ -83,8 +85,10 @@
             "Type": "Collective show",
             "Year": "2015",
             "Venue": "Visual Arts Museum MAVI - Santiago (CL)",
-            "image": "images/exhibitions/mavi 1.jpg",
-            "image": "images/exhibitions/mavi 2.jpg" 
+           "images": [
+           "images/exhibitions/mavi 1.jpg",
+           "images/exhibitions/mavi 2.jpg"
+        ]
         },
         {
             "title": "One More Year of Humor, and Then I'll Talk About War",
