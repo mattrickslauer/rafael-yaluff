@@ -62,7 +62,7 @@
             "Year": "2018",
             "Venue": "Otiima Artworks - Porto (PT)",
             "image": "images/exhibitions/karaoke 1.jpg"
-            "image": "images/exhibitions/karaoke 2.jpg"
+            "image 2": "images/exhibitions/karaoke 2.jpg"
         },
         {
             "title": "The Blue Mask",
@@ -84,7 +84,7 @@
             "Year": "2015",
             "Venue": "Visual Arts Museum MAVI - Santiago (CL)",
             "image": "images/exhibitions/mavi 1.jpg"
-            "image": "images/exhibitions/mavi 2.jpg" 
+            "image 2": "images/exhibitions/mavi 2.jpg" 
         },
         {
             "title": "One More Year of Humor, and Then I'll Talk About War",
