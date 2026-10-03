@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paintings | Rafael Yaluff</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      header {
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .back-link {
+        display: inline-block;
+        font-size: 0.9rem;
+        color: #000000;
+        text-decoration: none;
+        margin-bottom: 30px;
+        transition: opacity 0.3s ease;
+      }
+
+      .back-link:hover {
+        opacity: 0.6;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: normal;
+        letter-spacing: 2px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 60px;
+      }
+
+      .painting-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .painting-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        display: block;
+      }
+
+      .painting-info {
+        text-align: left;
+      }
+
+      .painting-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+
+      .painting-details {
+        font-size: 0.9rem;
+        color: #666666;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+
+      .painting-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        font-style: italic;
+        color: #333333;
+      }
+
+      @media (max-width: 768px) {
+        .gallery {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a href="landing.html" class="back-link">← Back</a>
+        <h1>Paintings</h1>
+      </header>
+
+      <div class="gallery" id="gallery"></div>
+    </div>
+
+    <script>
+      fetch('paintings.json')
+        .then(response => response.json())
+        .then(data => {
+          const gallery = document.getElementById('gallery');
+          data.paintings.forEach(painting => {
+            const card = document.createElement('div');
+            card.className = 'painting-card';
+            card.innerHTML = `
+              <img src="${painting.image}" alt="${painting.title}" class="painting-image" />
+              <div class="painting-info">
+                <div class="painting-title">${painting.title}</div>
+                <div class="painting-details">
+                  ${painting.year} | ${painting.medium}<br />
+                  ${painting.dimensions}
+                </div>
+                <div class="painting-description">${painting.description}</div>
+              </div>
+            `;
+            gallery.appendChild(card);
+          });
+        });
+    </script>
+  </body>
+</html>
