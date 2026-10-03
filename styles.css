@@ -1,4 +1,13 @@
 /* Minimal override for the stripped-down gallery layout */
+
+* {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
 header.site-header,
 header {
   border-bottom: none;
@@ -10,6 +19,7 @@ header.site-header h1,
 header h1 {
   margin: 0;
   border-bottom: none;
+  font-family: Arial, sans-serif;
 }
 
 .site-header {
