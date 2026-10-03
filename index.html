@@ -1,395 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafael Yaluff</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="images/favicon.jpg" type="image/jpeg">
-    <style>
-        /* Additional styles for exhibition carousel */
-        .exhibition-counter {
-            text-align: center;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.7);
-            font-family: inherit;
-        }
-        
-        .cv-section .lazy-button {
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #fff;
-            border: 1px solid #fff;
-            padding: 10px 20px;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .cv-section .lazy-button:hover:not(:disabled) {
-            background-color: #fff;
-            color: #000;
-            transform: translateY(-2px);
-        }
-        
-        .cv-section .lazy-button:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-        
-        .exhibition-carousel {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            width: 100%;
-        }
-        
-       
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <header>
-            <h1><a href="index.html">RAFAEL YALUFF</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="gallery.html">Gallery---------------</a></li>
-<!--                     <li><a href="#" onclick="openAboutModal(); return false;">About</a></li> -->
-                </ul>
-            </nav>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rafael Yaluff — contemporary painter and visual artist."
+    />
+    <title>Rafael Yaluff | Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="#top" class="brand" aria-label="Rafael Yaluff home">Rafael Yaluff</a>
 
-        
-        <main class="home">
-            <div class="hero">
-                <div class="hero-image">
-                    <a href="painting.html?id=Umgekehrte-Verkündigung" class="painting-link">
-                        <img src="images/Umgekehrte Verkündigung.jpg" alt="Rafael Yaluff - Banner Image">
-                    </a>
-                </div>
-                <div class="hero-text">
-                    <h2>Xoltz Popov</h2>
-                    <h3>
-Uncertain times for our fragile,vagabond hero.
-Fear, remorse, suspicion of self and future,
-loom day after day with more authority.
-The windmills vanish, giving way to the
-bleakness of 9 to 5, along its pixelated
-sharpness.
-In this feature: Years of dodged waves in
-a sea of tar.
-I hope you enjoy them like artifacts in an
-arid game. Useful? Maybe only if they are
-able to hang on invisible walls.</h3>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-                    <p></p>
-                </div>
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Contemporary painter</p>
+            <h1>Art shaped by memory, movement, and uncertainty.</h1>
+            <p class="lead">
+              I create paintings that sit between dream and document — where
+              fragments of city life, private myth, and emotional weather all
+              meet.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#work">View work</a>
+              <a class="button secondary" href="#contact">Get in touch</a>
             </div>
-            
-            <div class="featured">
-                <h2>Some Paintings</h2>
-                <div class="gallery-preview" id="featured-works">
-                    <!-- Featured paintings will be loaded dynamically -->
-                </div>
+          </div>
+
+          <div class="hero-media">
+            <img
+              src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80"
+              alt="Abstract painting in a gallery space"
+            />
+          </div>
+        </section>
+
+        <section class="featured" id="work">
+          <div class="section-heading">
+            <p class="eyebrow">Selected works</p>
+            <h2>Recent paintings</h2>
+          </div>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <img
+                src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80"
+                alt="Painting titled Nocturne"
+              />
+              <div class="work-card-copy">
+                <span>2025</span>
+                <h3>Nocturne</h3>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <img
+                src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=80"
+                alt="Painting titled Fragmented Memory"
+              />
+              <div class="work-card-copy">
+                <span>2024</span>
+                <h3>Fragmented Memory</h3>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <img
+                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80"
+                alt="Painting titled Quiet Signal"
+              />
+              <div class="work-card-copy">
+                <span>2024</span>
+                <h3>Quiet Signal</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="about" id="about">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Painterly research in motion</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                Rafael Yaluff is a visual artist working across painting and
+                image-making, drawing from urban rhythm, memory, and personal
+                mythology. His practice explores how a place can carry emotional
+                residue — how surfaces, gestures, and silence can tell a story.
+              </p>
+              <p>
+                Through layered color and uneasy compositions, he builds scenes
+                that feel both intimate and unstable, searching for clarity in
+                contradiction.
+              </p>
             </div>
-        </main>
-        <footer>
-            <p>© 2025 Rafael Yaluff. All Rights Reserved.</p>
-                    
-            <div class="social-links">
-                <a href="https://www.instagram.com/xoltzpopov/" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="https://wa.me/16462470837" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                </a>
+
+            <div class="about-meta">
+              <div>
+                <span class="meta-label">Based in</span>
+                <p>Mexico / International</p>
+              </div>
+              <div>
+                <span class="meta-label">Mediums</span>
+                <p>Painting, mixed media, studies</p>
+              </div>
+              <div>
+                <span class="meta-label">Available for</span>
+                <p>Commission, exhibitions, collaborations</p>
+              </div>
             </div>
-        </footer>
+          </div>
+        </section>
+
+        <section class="contact" id="contact">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>For commissions and inquiries</h2>
+          </div>
+
+          <div class="contact-box">
+            <p>
+              To discuss new work, exhibitions, or private commissions, send a
+              message and I’ll be happy to connect.
+            </p>
+            <a href="mailto:hello@rafaelyaluff.com">hello@rafaelyaluff.com</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>© 2025 Rafael Yaluff</p>
+      </footer>
     </div>
-
-    <!-- About Tab Button -->
-    <div class="about-tab" id="aboutTab">
-        <span>About</span>
-    </div>
-
-    <!-- About Modal -->
-    <div id="aboutModal" class="about-modal">
-        <div class="about-modal-content">
-            <div class="about-modal-close" onclick="closeAboutModal()">✕</div>
-            <div class="about-modal-body">
-                <!-- Content will be loaded here -->
-            </div>
-        </div>
-    </div>
-
-    <div id="presentation-mode" class="presentation-mode">
-        <div class="presentation-close" onclick="closePresentationMode()">✕</div>
-        <div class="presentation-nav presentation-prev" onclick="navigateSlide(-1)">❮</div>
-        <div class="presentation-nav presentation-next" onclick="navigateSlide(1)">❯</div>
-        <div class="presentation-slides">
-            <!-- Slides will be loaded dynamically -->
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-            <img id="lightbox-image" class="lightbox-image" src="" alt="">
-            <div id="lightbox-caption" class="lightbox-caption"></div>
-        </div>
-    </div>
-
-    <script>
-    function toggleMobileMenu() {
-        // This function is no longer needed but kept for compatibility
-    }
-
-    // Presentation mode
-    let currentSlide = 0;
-    let slides = [];
-    let paintings = [];
-
-    function loadPresentationSlides() {
-        fetch('paintings.json')
-            .then(response => response.json())
-            .then(data => {
-                paintings = data.paintings;
-                const slidesContainer = document.querySelector('.presentation-slides');
-                slidesContainer.innerHTML = '';
-                
-                paintings.forEach(painting => {
-                    const slide = document.createElement('div');
-                    slide.className = 'slide';
-                    
-                    const img = document.createElement('img');
-                    img.src = painting.image;
-                    img.alt = painting.title;
-                    
-                    const infoDiv = document.createElement('div');
-                    infoDiv.className = 'slide-info';
-                    
-                    const title = document.createElement('h3');
-                    title.textContent = painting.title;
-                    
-                    const year = document.createElement('p');
-                    year.textContent = painting.year;
-                    
-                    infoDiv.appendChild(title);
-                    infoDiv.appendChild(year);
-                    
-                    slide.appendChild(img);
-                    slide.appendChild(infoDiv);
-                    
-                    slidesContainer.appendChild(slide);
-                });
-                
-                slides = document.querySelectorAll('.presentation-slides .slide');
-            })
-            .catch(error => console.error('Error loading slides:', error));
-    }
-
-    function openPresentationMode(paintingId) {
-        document.getElementById('presentation-mode').classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        if (paintingId) {
-            const index = paintings.findIndex(p => p.id === paintingId);
-            if (index !== -1) {
-                showSlide(index);
-            } else {
-                showSlide(0);
-            }
-        } else {
-            showSlide(0);
-        }
-    }
-
-    function closePresentationMode() {
-        document.getElementById('presentation-mode').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    function showSlide(n) {
-        slides.forEach(slide => slide.style.display = 'none');
-        
-        if (n >= slides.length) {
-            currentSlide = 0;
-        } else if (n < 0) {
-            currentSlide = slides.length - 1;
-        } else {
-            currentSlide = n;
-        }
-        
-        if (slides[currentSlide]) {
-            slides[currentSlide].style.display = 'flex';
-        }
-    }
-
-    function navigateSlide(direction) {
-        showSlide(currentSlide + direction);
-    }
-
-function populateExhibitions(){
-    console.log("loading exhibitions");
-            fetch('exhibitions.json')
-                .then(response => response.json())
-                .then(data => {
-                    const exhibitionList = document.getElementById('exhibitionList');
-                    
-                    data.exhibitions.forEach(exhibition => {
-                        const exhibitionItem = document.createElement('div');
-                        exhibitionItem.className = 'exhibition-item';
-                        
-                        exhibitionItem.innerHTML = `
-                            <div class="exhibition-content">
-                                <h4>${exhibition.title}</h4>
-                                <p><strong>Type:</strong> ${exhibition.Type}</p>
-                                <p><strong>Year:</strong> ${exhibition.Year}</p>
-                                <p><strong>Venue:</strong> ${exhibition.Venue}</p>
-                            </div>
-                            <img src="${exhibition.image}" alt="${exhibition.title}" class="exhibition-thumbnail" onclick="openLightbox('${exhibition.image}', '${exhibition.title}')">
-                        `;
-                        
-                        exhibitionList.appendChild(exhibitionItem);
-                        console.log("added exhibition", exhibition);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading exhibitions:', error);
-                    const exhibitionList = document.getElementById('exhibitionList');
-                    exhibitionList.innerHTML = '<p>Error loading exhibitions. Please try again later.</p>';
-                });
-}
-
-// Lightbox functions
-function openLightbox(imageSrc, caption) {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    
-    lightboxImage.src = imageSrc;
-    lightboxImage.alt = caption;
-    lightboxCaption.textContent = caption;
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-    // About Modal Functions
-    function openAboutModal() {
-        fetch('about.html')
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const aboutContent = doc.querySelector('.about-content');
-                document.querySelector('.about-modal-body').innerHTML = aboutContent.outerHTML;
-                document.getElementById('aboutModal').classList.add('active');
-                document.body.style.overflow = 'hidden';
-                populateExhibitions();
-                // Wait a brief moment for DOM to update
-                // setTimeout(() => {
-                    // Initialize the carousel
-                    // initExhibitionCarousel();
-                // }, 100);
-            })
-            .catch(error => console.error('Error loading about content:', error));
-    }
-
-    function closeAboutModal() {
-        document.getElementById('aboutModal').classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Keyboard navigation
-    document.addEventListener('keydown', function(event) {
-        const presentationMode = document.getElementById('presentation-mode');
-        const aboutModal = document.getElementById('aboutModal');
-        const lightbox = document.getElementById('lightbox');
-        
-        if (presentationMode.classList.contains('active')) {
-            if (event.key === 'Escape') {
-                closePresentationMode();
-            } else if (event.key === 'ArrowLeft') {
-                navigateSlide(-1);
-            } else if (event.key === 'ArrowRight') {
-                navigateSlide(1);
-            }
-        } else if (aboutModal.classList.contains('active')) {
-            if (event.key === 'Escape') {
-                closeAboutModal();
-            }
-        } else if (lightbox.classList.contains('active')) {
-            if (event.key === 'Escape') {
-                closeLightbox();
-            }
-        }
-    });
-
-    // Click outside lightbox to close
-    document.getElementById('lightbox').addEventListener('click', function(event) {
-        if (event.target === this) {
-            closeLightbox();
-        }
-    });
-
-    // Load featured paintings
-    function loadFeaturedPaintings() {
-        fetch('paintings.json')
-            .then(response => response.json())
-            .then(data => {
-                // Select specific paintings for featured section
-                const featuredIds = ['lumpenproletariat', 'pregnant-anna', 'alien-flag'];
-                const featuredPaintings = data.paintings.filter(painting => featuredIds.includes(painting.id));
-                
-                const container = document.getElementById('featured-works');
-                
-                featuredPaintings.forEach(painting => {
-                    const paintingElement = document.createElement('a');
-                    paintingElement.href = `painting.html?id=${painting.id}`;
-                    paintingElement.className = 'painting';
-                    
-                    const img = document.createElement('img');
-                    img.src = painting.image;
-                    img.alt = painting.title;
-                    
-                    const overlay = document.createElement('div');
-                    overlay.className = 'overlay';
-                    
-                    const title = document.createElement('span');
-                    title.textContent = painting.title;
-                    
-                    overlay.appendChild(title);
-                    paintingElement.appendChild(img);
-                    paintingElement.appendChild(overlay);
-                    
-                    container.appendChild(paintingElement);
-                });
-            })
-            .catch(error => console.error('Error loading featured paintings:', error));
-    }
-
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
-        loadFeaturedPaintings();
-        loadPresentationSlides();
-        
-        // Add about tab click event
-        document.getElementById('aboutTab').addEventListener('click', openAboutModal);
-    });
-    
-    // Exhibition carousel function (copied from about.html)
-   
-    </script>
-</body>
-</html> 
+  </body>
+</html>
