@@ -13,9 +13,9 @@
       }
 
       body {
-        background-color: #ffffff;
+        background: #ffffff;
         color: #000000;
-        padding: 40px 20px;
+        padding: 40px 20px 80px;
       }
 
       .container {
@@ -23,116 +23,107 @@
         margin: 0 auto;
       }
 
-      header {
-        margin-bottom: 60px;
-        text-align: center;
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
       }
 
       .back-link {
-        display: inline-block;
-        font-size: 0.9rem;
         color: #000000;
         text-decoration: none;
-        margin-bottom: 30px;
-        transition: opacity 0.3s ease;
-      }
-
-      .back-link:hover {
-        opacity: 0.6;
+        font-size: 0.9rem;
       }
 
       h1 {
-        font-size: 2.5rem;
-        font-weight: normal;
-        letter-spacing: 2px;
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        margin-bottom: 48px;
       }
 
       .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 60px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 42px;
       }
 
-      .painting-card {
+      .painting {
         display: flex;
         flex-direction: column;
       }
 
-      .painting-image {
+      .painting img {
         width: 100%;
         height: auto;
-        margin-bottom: 20px;
         display: block;
+        background: #f5f5f5;
       }
 
       .painting-info {
-        text-align: left;
+        margin-top: 16px;
       }
 
-      .painting-title {
-        font-size: 1.2rem;
-        font-weight: bold;
+      .painting-info h2 {
+        font-size: 1.1rem;
+        font-weight: 700;
         margin-bottom: 8px;
-        letter-spacing: 1px;
+        letter-spacing: 0.04em;
       }
 
-      .painting-details {
+      .meta {
+        font-size: 0.82rem;
+        color: #555555;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      .description {
         font-size: 0.9rem;
-        color: #666666;
-        margin-bottom: 12px;
-        line-height: 1.6;
-      }
-
-      .painting-description {
-        font-size: 0.95rem;
-        line-height: 1.6;
+        line-height: 1.7;
+        color: #222222;
         font-style: italic;
-        color: #333333;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 640px) {
         .gallery {
           grid-template-columns: 1fr;
-          gap: 40px;
-        }
-
-        h1 {
-          font-size: 1.8rem;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <header>
-        <a href="landing.html" class="back-link">← Back</a>
-        <h1>Paintings</h1>
-      </header>
-
-      <div class="gallery" id="gallery"></div>
+      <div class="topbar">
+        <a class="back-link" href="index.html">← Back</a>
+      </div>
+      <h1>Paintings</h1>
+      <div id="gallery" class="gallery"></div>
     </div>
 
     <script>
       fetch('paintings.json')
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
           const gallery = document.getElementById('gallery');
-          data.paintings.forEach(painting => {
-            const card = document.createElement('div');
-            card.className = 'painting-card';
+          data.paintings.forEach((painting) => {
+            const card = document.createElement('article');
+            card.className = 'painting';
             card.innerHTML = `
-              <img src="${painting.image}" alt="${painting.title}" class="painting-image" />
+              <img src="${painting.image}" alt="${painting.title}" />
               <div class="painting-info">
-                <div class="painting-title">${painting.title}</div>
-                <div class="painting-details">
-                  ${painting.year} | ${painting.medium}<br />
-                  ${painting.dimensions}
-                </div>
-                <div class="painting-description">${painting.description}</div>
+                <h2>${painting.title}</h2>
+                <div class="meta">${painting.year} | ${painting.medium}<br>${painting.dimensions}</div>
+                <div class="description">${painting.description}</div>
               </div>
             `;
             gallery.appendChild(card);
           });
+        })
+        .catch(() => {
+          document.getElementById('gallery').innerHTML = '<p>Unable to load paintings.</p>';
         });
     </script>
   </body>
