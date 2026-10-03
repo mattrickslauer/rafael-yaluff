@@ -147,24 +147,105 @@
       </div>
 
       <div class="section">
-        <h2>Exposiciones (selección)</h2>
-        <p>Frodo in the Undying Lands</p>
-        <p>Culterim - Individual</p>
-        <p>2026 - Berlin (DE)</p>
-        <br />
-        <p>АМЕРИКА</p>
-        <p>Chashama - Individual</p>
-        <p>2026 - Nueva York (US)</p>
-        <br />
-        <p>Fluid Mechanics</p>
-        <p>Prayers</p>
-        <p>Deli Grocery - Colectiva</p>
-        <p>2025 - Nueva York (US)</p>
-      </div>
-
-      <div class="section">
         <h2>Exhibitions</h2>
-        <div id="exhibitions" class="exhibitions"></div>
+        <div class="exhibitions">
+          <div class="exhibition">
+            <strong>Frodo in the Undying Lands</strong>
+            <span>Individual · 2026 · Culterim - Berlin (DE)</span>
+          </div>
+          <div class="exhibition">
+            <strong>АМЕРИКА</strong>
+            <span>Individual · 2026 · Chashama - Nueva York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Fluid Mechanics / Prayers</strong>
+            <span>Group show · 2025 · Deli Grocery - Nueva York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Open Studio</strong>
+            <span>Studio · 2025 · Santiago (CHI)</span>
+          </div>
+          <div class="exhibition">
+            <strong>The New Pop Chilean Song</strong>
+            <span>Solo show · 2024 · Colexion 33 - Santiago (CHI)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Conflictual Distance - The Immigrant Artist Biennial</strong>
+            <span>Group show · 2023 - 24 · EFA Project space - New York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Worms, a good business model</strong>
+            <span>Group show · 2023 · Thesis show, Hunter College MFA. Hudson Gallery - New York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Chilean Connection</strong>
+            <span>Group show · 2022 · MONOPOL - Berlin (DE)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Beauty at the Swamp's Center</strong>
+            <span>Group show · 2021 · Hunter College MFA - New York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Hallway Paraphiliacs</strong>
+            <span>Group show with photographer Martin Parsekian · 2019 · 91 Dobbin - New York (US)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Prayers</strong>
+            <span>Individual Show · 2019 - 2020 · Corkin Gallery - Toronto (CA)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Karaoke</strong>
+            <span>Group show with artist Tiago Madaleno · 2018 · Otiima Artworks - Porto (PT)</span>
+          </div>
+          <div class="exhibition">
+            <strong>The Blue Mask</strong>
+            <span>Individual show · 2017 · Hashtag Gallery - Toronto (CA)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Rainforests</strong>
+            <span>Individual show · 2015 · Columbus Centre - Toronto (CA)</span>
+          </div>
+          <div class="exhibition">
+            <strong>MAVI & Minera Escondida prize: Young Contemporary Art</strong>
+            <span>Collective show · 2015 · Visual Arts Museum MAVI - Santiago (CL)</span>
+          </div>
+          <div class="exhibition">
+            <strong>One More Year of Humor, and Then I'll Talk About War</strong>
+            <span>Individual show · 2014 · Madhaus Gallery - Santiago (CL)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Pan/orama</strong>
+            <span>Collective show · 2014 · Daniels Spectrum Centre - Toronto (CA)</span>
+          </div>
+          <div class="exhibition">
+            <strong>The Sun</strong>
+            <span>Individual show · 2014 · TORP Inc. Showroom - Toronto (CA)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Wild Trash</strong>
+            <span>Individual show · 2013 · Local Arte Contemporáneo - Santiago (CL)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Forårsudstilling 13: Spring Exhibition 13</strong>
+            <span>Collective show · 2013 · Kunsthal Charlottenborg - Copenhagen (DK)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Paintings of the Chilean Patagonian Rainforest, Plein Air and in Big Format</strong>
+            <span>Individual show · 2012 · MACCHINA Gallery - Santiago (CL)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Paintings of the Chilean Forest</strong>
+            <span>Individual show · 2012 · Citi Gallery - Santiago (CL)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Funkhaus Colective</strong>
+            <span>Collective show · 2011 · Funkhaus Berlin - Berlin (DE)</span>
+          </div>
+          <div class="exhibition">
+            <strong>Phenomenological Investigations, on the Impressionist Method of Claude Monet</strong>
+            <span>Individual show · 2011 · Loreto Gallery - Santiago (CL)</span>
+          </div>
+        </div>
       </div>
 
       <div class="section">
@@ -172,25 +253,5 @@
         <p><a href="mailto:ryaluff@gmail.com">ryaluff@gmail.com</a></p>
       </div>
     </div>
-
-    <script>
-      fetch('exhibitions.json')
-        .then((res) => res.json())
-        .then((data) => {
-          const list = document.getElementById('exhibitions');
-          data.exhibitions.forEach((item) => {
-            const div = document.createElement('div');
-            div.className = 'exhibition';
-            div.innerHTML = `
-              <strong>${item.title}</strong>
-              <span>${item.Type} · ${item.Year} · ${item.Venue}</span>
-            `;
-            list.appendChild(div);
-          });
-        })
-        .catch(() => {
-          document.getElementById('exhibitions').innerHTML = '<p>Exhibitions not available.</p>';
-        });
-    </script>
   </body>
 </html>
