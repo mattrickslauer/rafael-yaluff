@@ -60,6 +60,7 @@
         height: auto;
         display: block;
         background: #f5f5f5;
+        cursor: pointer;
       }
 
       .painting-info {
@@ -88,9 +89,57 @@
         font-style: italic;
       }
 
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        padding: 32px;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: min(90vw, 1200px);
+        max-height: 90vh;
+      }
+
+      .lightbox-content img {
+        display: block;
+        max-width: 100%;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        background: #ffffff;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #000000;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
       @media (max-width: 640px) {
         .gallery {
           grid-template-columns: 1fr;
+        }
+
+        .lightbox {
+          padding: 20px;
         }
       }
     </style>
@@ -104,11 +153,22 @@
       <div id="gallery" class="gallery"></div>
     </div>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close image">×</button>
+        <img id="lightbox-image" src="" alt="Expanded painting view" />
+      </div>
+    </div>
+
     <script>
       fetch('paintings.json')
         .then(res => res.json())
         .then(data => {
           const gallery = document.getElementById('gallery');
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImage = document.getElementById('lightbox-image');
+          const closeButton = document.querySelector('.lightbox-close');
+
           data.paintings.forEach((painting) => {
             const card = document.createElement('article');
             card.className = 'painting';
@@ -117,14 +177,43 @@
               : '';
 
             card.innerHTML = `
-              <img src="${painting.image}" alt="${painting.title}" />
+              <img src="${painting.image}" alt="${painting.title}" data-title="${painting.title}" />
               <div class="painting-info">
                 <h2>${painting.title}</h2>
                 <div class="meta">${painting.year} | ${painting.medium}<br>${painting.dimensions}</div>
                 ${description}
               </div>
             `;
+
+            const image = card.querySelector('img');
+            image.addEventListener('click', () => {
+              lightboxImage.src = painting.image;
+              lightboxImage.alt = painting.title;
+              lightbox.classList.add('open');
+              lightbox.setAttribute('aria-hidden', 'false');
+            });
+
             gallery.appendChild(card);
+          });
+
+          function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+          }
+
+          closeButton.addEventListener('click', closeLightbox);
+
+          lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+              closeLightbox();
+            }
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+              closeLightbox();
+            }
           });
         })
         .catch(() => {
