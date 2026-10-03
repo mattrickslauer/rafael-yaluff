@@ -6,19 +6,19 @@
       "year": "2025",
       "medium": "Oil on canvas",
       "dimensions": "270 x 210 cm.",
-      "description": "Searching for redemption in the Alien soundtracks",
+      "description": "",
       "image": "images/Umgekehrte Verkündigung.jpg"
     },
-        {
+    {
       "id": "Me-Phil-01",
       "title": "Me and Phill in the Yes rally 1988 V1",
       "year": "2025",
       "medium": "Oil on canvas",
       "dimensions": "230 x 210 cm.",
-      "description": "The Ghost of a flag. Shadows on the back of a Toyota",
+      "description": "",
       "image": "images/  Moi et Phill dans la caravane du Si en 1988 - Version 1.jpg"
     },
-        {
+    {
       "id": "Me-and-Phill-02",
       "title": "Me and Phill in the Yes rally 1988 V2",
       "year": "2025",
@@ -27,7 +27,7 @@
       "description": "Idea for painting: Me an Phill burning our stepmother",
       "image": "images/  Moi et Phill dans la caravane du Si en 1988 - Version 2.jpg"
     },
-        {
+    {
       "id": "Me-and-Phill-03",
       "title": "Me and Phill in the Yes rally 1988 V3",
       "year": "2025",
@@ -36,7 +36,7 @@
       "description": "Fleshy flags",
       "image": "images/Moi et Phill dans la caravane du Si en 1988 - Version 3.jpg"
     },
-        {
+    {
       "id": "sara-se-parece",
       "title": "Sara se parece a mi mama",
       "year": "2023",
@@ -45,7 +45,7 @@
       "description": "Wait until the dreadful heart is pale again. Wait until the fearful time is clean and new",
       "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
     },
-        {
+    {
       "id": "phil-and-me-yes-rally",
       "title": "Phil and me in the Yes rally in 1988",
       "year": "2021",
@@ -105,10 +105,10 @@
       "year": "2021",
       "medium": "Oil on canvas",
       "dimensions": "183 x 121 cm.",
-      "description": "A desire to scream freedom, burns deep inside of me, in every conversation, taking away my posible friends, a hymn of freedom like drums like bells, strips me from fear, sets me alone, the next day I mourn, making future promises of silence, until I regain strength one more.",
+      "description": "A desire to scream freedom, burns deep inside of me, in every conversation, taking away my posible friends, a hymn of freedom like drums like bells, strips me from fear, set[... ]",
       "image": "images/Rafael Yaluff - Promises of silence.jpg"
     },
-                {
+    {
       "id": "academic-rite",
       "title": "Academic Rite",
       "year": "2022",
@@ -118,4 +118,4 @@
       "image": "images/Rafael Yaluff - Academic Rite.jpg"
     }
   ]
-} 
+}

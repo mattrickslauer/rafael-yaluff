@@ -111,12 +111,16 @@
           data.paintings.forEach((painting) => {
             const card = document.createElement('article');
             card.className = 'painting';
+            const description = painting.description && painting.description.trim()
+              ? `<div class="description">${painting.description}</div>`
+              : '';
+
             card.innerHTML = `
               <img src="${painting.image}" alt="${painting.title}" />
               <div class="painting-info">
                 <h2>${painting.title}</h2>
                 <div class="meta">${painting.year} | ${painting.medium}<br>${painting.dimensions}</div>
-                <div class="description">${painting.description}</div>
+                ${description}
               </div>
             `;
             gallery.appendChild(card);
