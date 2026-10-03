@@ -5,153 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Rafael Yaluff — contemporary painter and visual artist."
+      content="Rafael Yaluff — paintings and works from memory, place and time."
     />
-    <title>Rafael Yaluff | Artist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Rafael Yaluff</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="#top" class="brand" aria-label="Rafael Yaluff home">Rafael Yaluff</a>
+    <header class="site-header">
+      <div class="brand">Rafael Yaluff</div>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Painter</p>
+          <h1>Art from memory, place, and time.</h1>
+          <p>
+            Studio work in painting and image-making, shaped by memory,
+            movement, and everyday life.
+          </p>
+          <a class="button" href="#work">View work</a>
+        </div>
 
-      <main id="top">
-        <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Contemporary painter</p>
-            <h1>Art shaped by memory, movement, and uncertainty.</h1>
-            <p class="lead">
-              I create paintings that sit between dream and document — where
-              fragments of city life, private myth, and emotional weather all
-              meet.
-            </p>
+        <img
+          class="hero-image"
+          src="images/Rafael%20Yaluff%20Portrait.jpg"
+          alt="Portrait of Rafael Yaluff"
+        />
+      </section>
 
-            <div class="hero-actions">
-              <a class="button primary" href="#work">View work</a>
-              <a class="button secondary" href="#contact">Get in touch</a>
-            </div>
-          </div>
+      <section id="work" class="gallery">
+        <h2>Selected works</h2>
 
-          <div class="hero-media">
+        <div class="gallery-grid">
+          <figure class="art-card">
             <img
-              src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80"
-              alt="Abstract painting in a gallery space"
+              src="images/Rafael%20Yaluff%20-%20Kingdom.jpg"
+              alt="Kingdom"
             />
-          </div>
-        </section>
+            <figcaption>Kingdom</figcaption>
+          </figure>
 
-        <section class="featured" id="work">
-          <div class="section-heading">
-            <p class="eyebrow">Selected works</p>
-            <h2>Recent paintings</h2>
-          </div>
+          <figure class="art-card">
+            <img
+              src="images/Hide%20it%20under%20your%20tongue%20-%20Rafael%20Yaluff.jpg"
+              alt="Hide it under your tongue"
+            />
+            <figcaption>Hide it under your tongue</figcaption>
+          </figure>
 
-          <div class="work-grid">
-            <article class="work-card">
-              <img
-                src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=900&q=80"
-                alt="Painting titled Nocturne"
-              />
-              <div class="work-card-copy">
-                <span>2025</span>
-                <h3>Nocturne</h3>
-              </div>
-            </article>
+          <figure class="art-card">
+            <img
+              src="images/Rafael%20Yaluff%20-%20The%20house%20that%20Raf%20built.jpg"
+              alt="The house that Raf built"
+            />
+            <figcaption>The house that Raf built</figcaption>
+          </figure>
 
-            <article class="work-card">
-              <img
-                src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=900&q=80"
-                alt="Painting titled Fragmented Memory"
-              />
-              <div class="work-card-copy">
-                <span>2024</span>
-                <h3>Fragmented Memory</h3>
-              </div>
-            </article>
+          <figure class="art-card">
+            <img
+              src="images/Rafael%20Yaluff%20-%20Promises%20of%20silence.jpg"
+              alt="Promises of silence"
+            />
+            <figcaption>Promises of silence</figcaption>
+          </figure>
+        </div>
+      </section>
 
-            <article class="work-card">
-              <img
-                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=900&q=80"
-                alt="Painting titled Quiet Signal"
-              />
-              <div class="work-card-copy">
-                <span>2024</span>
-                <h3>Quiet Signal</h3>
-              </div>
-            </article>
-          </div>
-        </section>
+      <section id="about" class="about">
+        <h2>About</h2>
+        <p>
+          Rafael Yaluff is a visual artist working across painting and image-making.
+          His practice moves between personal memory, landscape, and urban tension,
+          building compositions that feel intimate, unstable, and alive.
+        </p>
+      </section>
 
-        <section class="about" id="about">
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>Painterly research in motion</h2>
-          </div>
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+          For commissions, exhibitions, and collaborations,
+          <a href="mailto:hello@rafaelyaluff.com">hello@rafaelyaluff.com</a>
+        </p>
+      </section>
+    </main>
 
-          <div class="about-grid">
-            <div class="about-copy">
-              <p>
-                Rafael Yaluff is a visual artist working across painting and
-                image-making, drawing from urban rhythm, memory, and personal
-                mythology. His practice explores how a place can carry emotional
-                residue — how surfaces, gestures, and silence can tell a story.
-              </p>
-              <p>
-                Through layered color and uneasy compositions, he builds scenes
-                that feel both intimate and unstable, searching for clarity in
-                contradiction.
-              </p>
-            </div>
-
-            <div class="about-meta">
-              <div>
-                <span class="meta-label">Based in</span>
-                <p>Mexico / International</p>
-              </div>
-              <div>
-                <span class="meta-label">Mediums</span>
-                <p>Painting, mixed media, studies</p>
-              </div>
-              <div>
-                <span class="meta-label">Available for</span>
-                <p>Commission, exhibitions, collaborations</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="contact" id="contact">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>For commissions and inquiries</h2>
-          </div>
-
-          <div class="contact-box">
-            <p>
-              To discuss new work, exhibitions, or private commissions, send a
-              message and I’ll be happy to connect.
-            </p>
-            <a href="mailto:hello@rafaelyaluff.com">hello@rafaelyaluff.com</a>
-          </div>
-        </section>
-      </main>
-
-      <footer class="site-footer">
-        <p>© 2025 Rafael Yaluff</p>
-      </footer>
-    </div>
+    <footer class="site-footer">
+      <p>© 2025 Rafael Yaluff</p>
+    </footer>
   </body>
 </html>
