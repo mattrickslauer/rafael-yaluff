@@ -46,15 +46,6 @@
       "image": "images/Rafael Yaluff - Sara se parece a mi mama (1).jpg"
     },
     {
-      "id": "phil-and-me-yes-rally",
-      "title": "Phil and me in the Yes rally in 1988",
-      "year": "2021",
-      "medium": "Oil on canvas",
-      "dimensions": "167 x 216 cm.",
-      "description": "",
-      "image": "images/Rafael Yaluff - Phil and me in the Yes rally in 1988 .jpg"
-    },
-    {
       "id": "pregnant-anna",
       "title": "Pregnant Anna",
       "year": "2023",
@@ -64,13 +55,13 @@
       "image": "images/Rafael Yaluff_Pregnant Anna_2023_Oil on canvas_66x85in.jpg"
     },
     {
-      "id": "the-house-that-raf-built",
-      "title": "The house that Raf built",
-      "year": "2021",
+      "id": "academic-rite",
+      "title": "Academic Rite",
+      "year": "2022",
       "medium": "Oil on canvas",
-      "dimensions": "75 x 75 cm.",
+      "dimensions": "370 x 213 cm.",
       "description": "",
-      "image": "images/Rafael Yaluff - The house that Raf built.jpg"
+      "image": "images/Rafael Yaluff - Academic Rite.jpg"
     },
     {
       "id": "lumpenproletariat",
@@ -82,15 +73,6 @@
       "image": "images/Lumpenproletariat - Rafael Yaluff.jpg"
     },
     {
-      "id": "alien-flag",
-      "title": "Alien Flag",
-      "year": "2021",
-      "medium": "Oil on canvas",
-      "dimensions": "167 x 216 cm.",
-      "description": "",
-      "image": "images/Rafael Yaluff_Alien Flag_2021_Oil and acrylic on canvas_66x85in.jpg"
-    },
-    {
       "id": "your-momentum-friend",
       "title": "Your momentum friend",
       "year": "2022",
@@ -100,6 +82,33 @@
       "image": "images/Your momentum friend - Rafael Yaluff.jpg"
     },
     {
+      "id": "alien-flag",
+      "title": "Alien Flag",
+      "year": "2021",
+      "medium": "Oil on canvas",
+      "dimensions": "167 x 216 cm.",
+      "description": "",
+      "image": "images/Rafael Yaluff_Alien Flag_2021_Oil and acrylic on canvas_66x85in.jpg"
+    },
+    {
+      "id": "phil-and-me-yes-rally",
+      "title": "Phil and me in the Yes rally in 1988",
+      "year": "2021",
+      "medium": "Oil on canvas",
+      "dimensions": "167 x 216 cm.",
+      "description": "",
+      "image": "images/Rafael Yaluff - Phil and me in the Yes rally in 1988 .jpg"
+    },
+    {
+      "id": "the-house-that-raf-built",
+      "title": "The house that Raf built",
+      "year": "2021",
+      "medium": "Oil on canvas",
+      "dimensions": "75 x 75 cm.",
+      "description": "",
+      "image": "images/Rafael Yaluff - The house that Raf built.jpg"
+    },
+    {
       "id": "promises-of-silence",
       "title": "Promises of silence",
       "year": "2021",
@@ -107,15 +116,6 @@
       "dimensions": "183 x 121 cm.",
       "description": "",
       "image": "images/Rafael Yaluff - Promises of silence.jpg"
-    },
-    {
-      "id": "academic-rite",
-      "title": "Academic Rite",
-      "year": "2022",
-      "medium": "Oil on canvas",
-      "dimensions": "370 x 213 cm.",
-      "description": "",
-      "image": "images/Rafael Yaluff - Academic Rite.jpg"
     }
   ]
 }
