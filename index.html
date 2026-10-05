@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XOLTZ POPOV RAFAEL YALUFF</title>
-
     <style>
       * {
         margin: 0;
@@ -38,36 +37,6 @@
         line-height: 1.1;
       }
 
-      /* SQUARE IMAGE FRAME */
-      .image-frame {
-        width: min(70vw, 500px);
-        aspect-ratio: 1 / 1;
-        margin: 0 auto 2.5rem auto;
-        overflow: hidden;
-      }
-
-      /* WIDE IMAGE */
-      .image-frame img {
-        height: 100%;
-        width: auto;
-        max-width: none;
-        display: block;
-
-        animation: camera-pan 20s ease-in-out infinite alternate;
-      }
-
-      /* SLOW CAMERA PAN */
-      @keyframes camera-pan {
-        from {
-          transform: translateX(0);
-        }
-
-        to {
-          transform: translateX(-84%);
-        }
-      }
-
-      /* NAVIGATION */
       .nav {
         display: flex;
         align-items: center;
@@ -88,36 +57,21 @@
         opacity: 0.6;
       }
 
-      /* MOBILE */
       @media (max-width: 640px) {
         .nav {
           width: 100%;
           gap: 1rem;
         }
-
-        .image-frame {
-          width: min(85vw, 500px);
-        }
       }
     </style>
   </head>
-
   <body>
     <div class="site">
-
       <h1>XOLTZ POPOV RAFAEL YALUFF</h1>
-
-      <!-- SQUARE IMAGE -->
-      <div class="image-frame">
-        <img src="images/exhibitions/window display full slimm copy.jpg" alt="" />
-      </div>
-
-      <!-- NAVIGATION -->
       <div class="nav" aria-label="Main navigation">
         <a href="paintings.html">Paintings</a>
         <a href="cv.html">CV</a>
       </div>
-
     </div>
   </body>
 </html>
