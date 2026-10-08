@@ -1,0 +1,34 @@
+# Every push to main republishes yaluff.art. Authentication is OIDC — GitHub mints a
+# short-lived token and assumes an AWS role scoped to this repo's main branch, so there
+# are no AWS keys stored in the repo.
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  id-token: write   # required to request the OIDC token
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::821135790223:role/rafael-yaluff-github-deploy
+          aws-region: us-east-1
+
+      # This role cannot modify infrastructure by design; infra/stack.yaml changes are
+      # applied with ./infra/deploy.sh from an admin machine.
+      - name: Publish
+        run: ./infra/publish.sh
