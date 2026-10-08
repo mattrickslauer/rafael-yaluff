@@ -1,0 +1,239 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  yaluff.art — Rafael Yaluff's portfolio. Static files on a private S3 bucket behind
+  CloudFront; www.yaluff.art redirects to the apex. Nothing runs at request time.
+
+Parameters:
+  CertificateArn:
+    Type: String
+    Default: ''
+    Description: ACM cert ARN in us-east-1. Empty until DNS validation completes.
+  DomainName:
+    Type: String
+    Default: yaluff.art
+    Description: >
+      The apex. It and www.<DomainName> are only attached once CertificateArn is set.
+  GitHubRepo:
+    Type: String
+    Default: mattrickslauer/rafael-yaluff
+    Description: owner/repo allowed to assume the CI deploy role (legacy subject form).
+  GitHubRepoImmutable:
+    Type: String
+    Default: mattrickslauer@92828402/rafael-yaluff@984439085
+    Description: >
+      The same repo in GitHub's immutable subject form, owner@ownerid/repo@repoid. New
+      repositories get this rather than the plain name, so the trust policy has to accept
+      it. Read the current value with:
+      gh api repos/<owner>/<repo>/actions/oidc/customization/sub
+  GitHubOidcProviderArn:
+    Type: String
+    Default: arn:aws:iam::821135790223:oidc-provider/token.actions.githubusercontent.com
+
+Conditions:
+  HasCert: !Not [!Equals [!Ref CertificateArn, '']]
+
+Resources:
+
+  # ── Static site bucket. Private; reachable only through CloudFront via OAC. ──────────
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub '${AWS::StackName}-site-${AWS::AccountId}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          # A short rollback window without paying to store old versions forever.
+          - Id: expire-noncurrent
+            Status: Enabled
+            NoncurrentVersionExpirationInDays: 30
+          - Id: abort-incomplete-uploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub '${SiteBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+          # ListBucket makes S3 answer a missing key with 404 instead of 403, which keeps
+          # the error page scoped to real not-founds and away from the API's own 403s.
+          - Sid: AllowCloudFrontList
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:ListBucket
+            Resource: !GetAtt SiteBucket.Arn
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+  # www.yaluff.art -> yaluff.art, one canonical address for links and search engines.
+  WwwRedirect:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub '${AWS::StackName}-www-redirect'
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Redirect www to the apex
+        Runtime: cloudfront-js-2.0
+      FunctionCode: !Sub |
+        function handler(event) {
+          var req = event.request;
+          var host = req.headers.host ? req.headers.host.value : '';
+          if (host === 'www.${DomainName}') {
+            var qs = Object.keys(req.querystring).map(function (k) {
+              var v = req.querystring[k];
+              return v.value ? k + '=' + v.value : k;
+            }).join('&');
+            return {
+              statusCode: 301,
+              statusDescription: 'Moved Permanently',
+              headers: { location: { value: 'https://${DomainName}' + req.uri + (qs ? '?' + qs : '') } }
+            };
+          }
+          return req;
+        }
+
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-s3-oac'
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub '${AWS::StackName} — ${DomainName}'
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: PriceClass_All
+        DefaultRootObject: index.html
+        Aliases: !If [HasCert, [!Ref DomainName, !Sub 'www.${DomainName}'], !Ref 'AWS::NoValue']
+        ViewerCertificate: !If
+          - HasCert
+          - AcmCertificateArn: !Ref CertificateArn
+            SslSupportMethod: sni-only
+            MinimumProtocolVersion: TLSv1.2_2021
+          - CloudFrontDefaultCertificate: true
+        Origins:
+          - Id: s3-site
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt OriginAccessControl.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        DefaultCacheBehavior:
+          TargetOriginId: s3-site
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD, OPTIONS]
+          CachedMethods: [GET, HEAD]
+          Compress: true
+          # Managed-CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          # Managed-SecurityHeadersPolicy
+          ResponseHeadersPolicyId: 67f7725c-6f97-4210-82d7-5512b31e9d03
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt WwwRedirect.FunctionMetadata.FunctionARN
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 60
+
+  # ── CI deploy role. GitHub Actions assumes this via OIDC, so no long-lived AWS keys
+  # live in the repo. Deliberately cannot touch infrastructure: it publishes files, but
+  # cannot create roles, edit the stack, or reconfigure the distribution. ──────────────
+  GitHubDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-github-deploy'
+      Description: Push-to-main deploys from GitHub Actions.
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOidcProviderArn
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                # Only main, so a fork or a pull-request branch cannot publish.
+                #
+                # Two values because GitHub is mid-migration on this claim: older
+                # repositories send repo:owner/name, while newer ones send the immutable
+                # repo:owner@ownerid/name@repoid. A list here is an OR, so the role works
+                # either side of that change and survives a rename. Matching only the name
+                # form fails on a new repo with a bare "Not authorized to perform
+                # sts:AssumeRoleWithWebIdentity", which says nothing about why.
+                token.actions.githubusercontent.com:sub:
+                  - !Sub 'repo:${GitHubRepo}:ref:refs/heads/main'
+                  - !Sub 'repo:${GitHubRepoImmutable}:ref:refs/heads/main'
+      Policies:
+        - PolicyName: publish-site
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ReadStackOutputs
+                Effect: Allow
+                Action: cloudformation:DescribeStacks
+                Resource: !Sub 'arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/${AWS::StackName}/*'
+              - Sid: ListSiteBucket
+                Effect: Allow
+                Action:
+                  - s3:ListBucket
+                  - s3:GetBucketLocation
+                Resource: !GetAtt SiteBucket.Arn
+              - Sid: WriteSiteObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub '${SiteBucket.Arn}/*'
+              - Sid: BustEdgeCache
+                Effect: Allow
+                Action:
+                  - cloudfront:CreateInvalidation
+                  # The CLI waiter polls GetInvalidation; without it the deploy creates
+                  # the invalidation and then fails waiting on its own work.
+                  - cloudfront:GetInvalidation
+                Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+Outputs:
+  GitHubDeployRoleArn:
+    Value: !GetAtt GitHubDeployRole.Arn
+  DistributionId:
+    Value: !Ref Distribution
+  DistributionDomain:
+    Description: Test here before flipping DNS.
+    Value: !GetAtt Distribution.DomainName
+  SiteBucketName:
+    Value: !Ref SiteBucket
