@@ -3,6 +3,7 @@
 //
 // File name format (parts separated by double underscores):
 //   1__Title EN__Título ES__Medium EN__Medio ES__Dimensions__Year.jpg
+// The number may be decimal (e.g. 2.5) to slot an image between two others.
 // Dimensions and year may also be given per language:
 //   1__Title EN__Título ES__Medium EN__Medio ES__Dims EN__Dims ES__Year EN__Year ES.jpg
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -27,7 +28,7 @@ for (const [id, collection] of Object.entries(manifest.collections)) {
     const parts = file.slice(0, -extname(file).length).split('__').map(part => part.trim());
     const [number, ...fields] = parts;
 
-    if (!/^\d+$/.test(number) || (fields.length !== 6 && fields.length !== 8)) {
+    if (!/^\d+(\.\d+)?$/.test(number) || (fields.length !== 6 && fields.length !== 8)) {
       errors.push(`${collection.folder}/${file}: expected number__title EN__title ES__medium EN__medium ES__dimensions__year`);
       continue;
     }
