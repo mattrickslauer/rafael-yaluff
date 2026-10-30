@@ -51,8 +51,9 @@
       }
 
       .intro {
-        max-width: 760px;
-        margin-bottom: 42px;
+        max-width: 520px;
+        margin: 48px 0 80px;
+        text-align: center;
       }
 
       .intro h2 {
@@ -60,15 +61,15 @@
         font-weight: 700;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        margin-bottom: 16px;
+        margin-bottom: 18px;
       }
 
-      .intro span {
-        display: block;
+      .intro p {
         color: #4b4b4b;
         font-size: 0.9rem;
-        margin-top: 3px;
-        white-space: pre-wrap;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 10px;
       }
 
       .back-link {
@@ -259,9 +260,11 @@
             heading.textContent = introTitle;
             intro.appendChild(heading);
           }
-          const body = document.createElement('span');
-          body.textContent = introText;
-          intro.appendChild(body);
+          introText.split('\n\n').forEach(paragraph => {
+            const line = document.createElement('p');
+            line.textContent = paragraph;
+            intro.appendChild(line);
+          });
         }
         gallery.replaceChildren();
 
