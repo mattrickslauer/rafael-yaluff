@@ -45,21 +45,54 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: min(100%, 560px);
+        width: min(100%, 900px);
         margin: 0 auto;
         gap: 1rem;
       }
 
-      .nav a {
+      .nav a,
+      .nav-dropdown summary {
         color: #000000;
         text-decoration: none;
         font-size: clamp(1rem, 2vw, 1.8rem);
         letter-spacing: 0.04em;
         transition: opacity 0.2s ease;
+        cursor: pointer;
       }
 
-      .nav a:hover {
+      .nav a:hover,
+      .nav-dropdown summary:hover {
         opacity: 0.6;
+      }
+
+      .nav-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown summary {
+        list-style: none;
+        white-space: nowrap;
+      }
+
+      .nav-dropdown summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .nav-dropdown summary::after {
+        content: "⌄";
+        margin-left: 0.35em;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+        display: grid;
+        gap: 0.5rem;
+        min-width: max-content;
+        padding: 0.75rem 0;
+        background: #ffffff;
       }
 
       @media (max-width: 640px) {
@@ -75,12 +108,19 @@
   <body>
     <div class="site">
       <h1>XOLTZ POPOV RAFAEL YALUFF</h1>
-      <div class="nav" aria-label="Main navigation">
+      <nav class="nav" aria-label="Main navigation">
         <a href="paintings.html">Paintings</a>
         <a href="cv.html">CV</a>
         <a href="press.html">Press</a>
         <a href="bio-and-statement.html">Bio/Statement</a>
-      </div>
+        <details class="nav-dropdown">
+          <summary>Artwork/Archive</summary>
+          <div class="nav-menu">
+            <a href="artwork-archive.html?collection=new-york-2021-2024">New York 2021 - 2024</a>
+            <a href="artwork-archive.html?collection=patagonia-2011-2015">Patagonia 2011 - 2015</a>
+          </div>
+        </details>
+      </nav>
     </div>
   </body>
 </html>
