@@ -24,7 +24,38 @@
       }
 
       .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         margin-bottom: 32px;
+      }
+
+      .lang-switch {
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .lang-switch button {
+        border: 1px solid #000000;
+        background: #ffffff;
+        color: #000000;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+      }
+
+      .lang-switch button[aria-pressed="true"] {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      .intro {
+        max-width: 760px;
+        margin-bottom: 42px;
+        font-size: 1rem;
+        line-height: 1.8;
+        white-space: pre-line;
       }
 
       .back-link {
@@ -89,88 +120,129 @@
   <body>
     <main class="container">
       <div class="topbar">
-        <a class="back-link" href="index.html">← Back</a>
+        <a class="back-link" href="index.html" id="back-link">← Back</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en">English</button>
+          <button type="button" data-lang="es">Español</button>
+        </div>
       </div>
       <h1 id="collection-title"></h1>
+      <div id="intro" class="intro"></div>
       <section id="gallery" class="gallery" aria-live="polite"></section>
     </main>
 
     <script>
       const gallery = document.getElementById('gallery');
+      const intro = document.getElementById('intro');
       const collectionId = new URLSearchParams(window.location.search).get('collection');
+      const text = {
+        en: {
+          back: '← Back',
+          empty: 'Artwork for this archive will be added soon.',
+          notFound: 'Archive section not found.',
+          error: 'Unable to load this archive section.'
+        },
+        es: {
+          back: '← Volver',
+          empty: 'Pronto se agregarán obras a este archivo.',
+          notFound: 'Sección del archivo no encontrada.',
+          error: 'No se pudo cargar esta sección del archivo.'
+        }
+      };
+
+      let collection = null;
+      let state = 'loading';
+      let lang = 'en';
+      try {
+        const saved = localStorage.getItem('archive-lang');
+        if (saved === 'en' || saved === 'es') lang = saved;
+      } catch (e) {}
+
+      function message(className, content) {
+        const p = document.createElement('p');
+        p.className = className;
+        p.textContent = content;
+        return p;
+      }
+
+      function render() {
+        document.documentElement.lang = lang;
+        document.getElementById('back-link').textContent = text[lang].back;
+        document.querySelectorAll('.lang-switch button').forEach(button => {
+          button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+        });
+
+        intro.textContent = collection && collection.intro ? collection.intro[lang] || '' : '';
+        gallery.replaceChildren();
+
+        if (state === 'error' || state === 'notFound') {
+          gallery.appendChild(message('error-state', text[lang][state]));
+          return;
+        }
+        if (!collection) return;
+        if (collection.artworks.length === 0) {
+          gallery.appendChild(message('empty-state', text[lang].empty));
+          return;
+        }
+
+        collection.artworks.forEach(artwork => {
+          const card = document.createElement('article');
+          card.className = 'artwork';
+
+          const image = document.createElement('img');
+          image.src = artwork.image;
+          image.alt = artwork.title[lang];
+          card.appendChild(image);
+
+          const info = document.createElement('div');
+          info.className = 'artwork-info';
+          const title = document.createElement('h2');
+          title.textContent = artwork.title[lang];
+          info.appendChild(title);
+
+          const meta = document.createElement('p');
+          meta.className = 'meta';
+          meta.textContent = [artwork.medium[lang], artwork.dimensions[lang], artwork.year[lang]]
+            .filter(Boolean)
+            .join(' | ');
+          info.appendChild(meta);
+
+          card.appendChild(info);
+          gallery.appendChild(card);
+        });
+      }
+
+      document.querySelectorAll('.lang-switch button').forEach(button => {
+        button.addEventListener('click', () => {
+          lang = button.dataset.lang;
+          try { localStorage.setItem('archive-lang', lang); } catch (e) {}
+          render();
+        });
+      });
 
       fetch('artwork-archive.json')
         .then(response => {
-          if (!response.ok) {
-            throw new Error('Unable to load artwork archive.');
-          }
+          if (!response.ok) throw new Error('Unable to load artwork archive.');
           return response.json();
         })
         .then(data => {
-          const collection = data.collections[collectionId];
-          if (!collection) {
-            document.title = 'Artwork/Archive | Rafael Yaluff';
-            const message = document.createElement('p');
-            message.className = 'error-state';
-            message.textContent = 'Archive section not found.';
-            gallery.appendChild(message);
-            return;
+          collection = data.collections[collectionId] || null;
+          if (collection) {
+            state = 'ready';
+            document.title = `${collection.title} | Rafael Yaluff`;
+            document.getElementById('collection-title').textContent = collection.title;
+          } else {
+            state = 'notFound';
           }
-
-          document.title = `${collection.title} | Rafael Yaluff`;
-          document.getElementById('collection-title').textContent = collection.title;
-
-          if (collection.artworks.length === 0) {
-            const message = document.createElement('p');
-            message.className = 'empty-state';
-            message.textContent = 'Artwork for this archive will be added soon.';
-            gallery.appendChild(message);
-            return;
-          }
-
-          collection.artworks.forEach(artwork => {
-            const card = document.createElement('article');
-            card.className = 'artwork';
-
-            const image = document.createElement('img');
-            image.src = artwork.image;
-            image.alt = artwork.title;
-            card.appendChild(image);
-
-            const info = document.createElement('div');
-            info.className = 'artwork-info';
-            const title = document.createElement('h2');
-            title.textContent = artwork.title;
-            info.appendChild(title);
-
-            const details = [artwork.year, artwork.medium, artwork.dimensions]
-              .filter(Boolean)
-              .join(' | ');
-            if (details) {
-              const meta = document.createElement('p');
-              meta.className = 'meta';
-              meta.textContent = details;
-              info.appendChild(meta);
-            }
-
-            if (artwork.description) {
-              const description = document.createElement('p');
-              description.className = 'description';
-              description.textContent = artwork.description;
-              info.appendChild(description);
-            }
-
-            card.appendChild(info);
-            gallery.appendChild(card);
-          });
+          render();
         })
         .catch(error => {
           console.error(error);
-          const message = document.createElement('p');
-          message.className = 'error-state';
-          message.textContent = 'Unable to load this archive section.';
-          gallery.appendChild(message);
+          state = 'error';
+          render();
         });
+
+      render();
     </script>
   </body>
 </html>
