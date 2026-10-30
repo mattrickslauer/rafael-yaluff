@@ -86,8 +86,8 @@
 
       .gallery {
         display: grid;
-        grid-template-columns: minmax(0, 760px);
-        gap: 42px;
+        grid-template-columns: minmax(0, 520px);
+        gap: 90px;
       }
 
       .artwork img {
@@ -95,6 +95,7 @@
         width: 100%;
         height: auto;
         background: #f5f5f5;
+        cursor: pointer;
       }
 
       .artwork-info {
@@ -131,6 +132,56 @@
       .error-state {
         color: #555555;
       }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        padding: 32px;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox-content {
+        position: relative;
+        max-width: min(90vw, 1200px);
+        max-height: 90vh;
+      }
+
+      .lightbox-content img {
+        display: block;
+        max-width: 100%;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        background: #ffffff;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -16px;
+        right: -16px;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #000000;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 640px) {
+        .lightbox {
+          padding: 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -147,9 +198,18 @@
       <section id="gallery" class="gallery" aria-live="polite"></section>
     </main>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close image">×</button>
+        <img id="lightbox-image" src="" alt="" />
+      </div>
+    </div>
+
     <script>
       const gallery = document.getElementById('gallery');
       const intro = document.getElementById('intro');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
       const collectionId = new URLSearchParams(window.location.search).get('collection');
       const text = {
         en: {
@@ -173,6 +233,8 @@
         const saved = localStorage.getItem('archive-lang');
         if (saved === 'en' || saved === 'es') lang = saved;
       } catch (e) {}
+
+      const imageUrl = path => path.split('/').map(encodeURIComponent).join('/');
 
       function message(className, content) {
         const p = document.createElement('p');
@@ -218,8 +280,14 @@
           card.className = 'artwork';
 
           const image = document.createElement('img');
-          image.src = artwork.image;
+          image.src = imageUrl(artwork.image);
           image.alt = artwork.title[lang];
+          image.addEventListener('click', () => {
+            lightboxImage.src = imageUrl(artwork.image);
+            lightboxImage.alt = artwork.title[lang];
+            lightbox.classList.add('open');
+            lightbox.setAttribute('aria-hidden', 'false');
+          });
           card.appendChild(image);
 
           const info = document.createElement('div');
@@ -239,6 +307,20 @@
           gallery.appendChild(card);
         });
       }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+
+      document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+      });
 
       document.querySelectorAll('.lang-switch button').forEach(button => {
         button.addEventListener('click', () => {
