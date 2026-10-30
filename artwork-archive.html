@@ -53,9 +53,22 @@
       .intro {
         max-width: 760px;
         margin-bottom: 42px;
-        font-size: 1rem;
-        line-height: 1.8;
-        white-space: pre-line;
+      }
+
+      .intro h2 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .intro span {
+        display: block;
+        color: #4b4b4b;
+        font-size: 0.9rem;
+        margin-top: 3px;
+        white-space: pre-wrap;
       }
 
       .back-link {
@@ -172,7 +185,19 @@
           button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
         });
 
-        intro.textContent = collection && collection.intro ? collection.intro[lang] || '' : '';
+        intro.replaceChildren();
+        const introText = collection && collection.intro ? collection.intro[lang] : '';
+        if (introText) {
+          const introTitle = collection.introTitle && collection.introTitle[lang];
+          if (introTitle) {
+            const heading = document.createElement('h2');
+            heading.textContent = introTitle;
+            intro.appendChild(heading);
+          }
+          const body = document.createElement('span');
+          body.textContent = introText;
+          intro.appendChild(body);
+        }
         gallery.replaceChildren();
 
         if (state === 'error' || state === 'notFound') {
