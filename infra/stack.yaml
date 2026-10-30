@@ -15,11 +15,11 @@ Parameters:
       The apex. It and www.<DomainName> are only attached once CertificateArn is set.
   GitHubRepo:
     Type: String
-    Default: mattrickslauer/rafael-yaluff
+    Default: ryaluff/rafael-yaluff
     Description: owner/repo allowed to assume the CI deploy role (legacy subject form).
   GitHubRepoImmutable:
     Type: String
-    Default: mattrickslauer@92828402/rafael-yaluff@984439085
+    Default: ryaluff@212035475/rafael-yaluff@984439085
     Description: >
       The same repo in GitHub's immutable subject form, owner@ownerid/repo@repoid. New
       repositories get this rather than the plain name, so the trust policy has to accept
