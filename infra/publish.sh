@@ -14,7 +14,7 @@ DIST_ID="$(out DistributionId)"
 DIST_DOMAIN="$(out DistributionDomain)"
 
 # The repo root is the site, minus the things that aren't.
-EXCLUDES=( --exclude '.*' --exclude '*/.*' --exclude 'infra/*' --exclude 'README.md' )
+EXCLUDES=( --exclude '.*' --exclude '*/.*' --exclude 'infra/*' --exclude 'scripts/*' --exclude 'README.md' )
 
 echo "Syncing to $BUCKET"
 aws s3 sync "$ROOT" "s3://$BUCKET" --delete --only-show-errors "${EXCLUDES[@]}"

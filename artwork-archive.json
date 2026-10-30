@@ -2,10 +2,20 @@
   "collections": {
     "new-york-2021-2024": {
       "title": "New York 2021 - 2024",
+      "folder": "images/new-york",
+      "intro": {
+        "en": "FOREWORD\n\nUncertain times for our fragile, vagabond hero, Rafael Yaluff.\n\nFear, remorse, suspicion of self and future, loom day after day with more authority.\n\nThe windmills vanish, giving way to the bleakness of 9 to 5, along its pixelated sharpness.\n\nIn this feature: 3 years of dodged waves in a sea of tar.\n\nI hope you enjoy them like artifacts in an arid game. Useful? Maybe only if they are able to hang on invisible walls.",
+        "es": "PREFACIO\n\nTiempos inciertos para nuestro frágil héroe vagabundo, Rafael Yaluff.\n\nMiedo, remordimiento, sospecha exacerbada de sí mismo y del futuro, acaecen día tras día, con mayor autoridad.\n\nLos molinos del viento se desvanecen, dando paso a la ineludible tarea de 9 a 5 y junto a ella la pixelada nitidez.\n\nEn esta entrega: 3 años de olas capeadas en un mar de petroleo.\n\nEspero las disfrute como artefactos en un árido juego. ¿Útiles? Tal vez solo sí consiguen colgar de muros invisibles."
+      },
       "artworks": []
     },
     "patagonia-2011-2015": {
       "title": "Patagonia 2011 - 2015",
+      "folder": "images/patagonia",
+      "intro": {
+        "en": "",
+        "es": ""
+      },
       "artworks": []
     }
   }
