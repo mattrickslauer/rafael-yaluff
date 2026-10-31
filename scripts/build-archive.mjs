@@ -16,6 +16,8 @@ const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 // Optional notes shown under an image's details (e.g. a translation of text written in the
 // painting): { "<collection id>": { "<image number>": { "en": "...", "es": "..." } } }
+// An entry may also carry "dimensions": { "en": "...", "es": "..." } to replace the dimensions
+// from the filename when they are too long to fit in it.
 const notesPath = join(root, 'artwork-notes.json');
 const notes = existsSync(notesPath) ? JSON.parse(readFileSync(notesPath, 'utf8')) : {};
 const errors = [];
@@ -50,8 +52,11 @@ for (const [id, collection] of Object.entries(manifest.collections)) {
   }
 
   for (const artwork of artworks) {
-    const note = notes[id] && notes[id][String(artwork.number)];
-    if (note) artwork.note = note;
+    const entry = notes[id] && notes[id][String(artwork.number)];
+    if (!entry) continue;
+    const { dimensions, ...note } = entry;
+    if (dimensions) artwork.dimensions = dimensions;
+    if (note.en || note.es) artwork.note = note;
   }
 
   artworks.sort((a, b) => a.number - b.number);
