@@ -51,7 +51,7 @@
       }
 
       .intro {
-        max-width: 600px;
+        max-width: 450px;
         padding: 0 40px;
         margin: 80px auto 80px;
         text-align: center;
@@ -134,6 +134,10 @@
         font-size: 0.8rem;
         font-style: italic;
         line-height: 1.5;
+      }
+
+      .note.strikethrough {
+        text-decoration: line-through;
       }
 
       .description {
@@ -323,7 +327,18 @@
           if (artwork.note && artwork.note[lang]) {
             const note = document.createElement('p');
             note.className = 'note';
-            note.textContent = '\u2020 ' + artwork.note[lang].replace(/\s+/g, ' ').trim();
+            if (artwork.noteStrikethrough && artwork.noteStrikethrough.includes(lang)) {
+              note.classList.add('strikethrough');
+            }
+            const noteText = artwork.note[lang].replace(/\s+/g, ' ').trim();
+            const footnoteIndex = noteText.indexOf('*');
+            if (footnoteIndex >= 0) {
+              note.append(document.createTextNode('\u2020 ' + noteText.slice(0, footnoteIndex).trimEnd()));
+              note.append(document.createElement('br'));
+              note.append(document.createTextNode(noteText.slice(footnoteIndex)));
+            } else {
+              note.textContent = '\u2020 ' + noteText;
+            }
             info.appendChild(note);
           }
 

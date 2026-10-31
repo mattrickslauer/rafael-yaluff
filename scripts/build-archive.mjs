@@ -54,8 +54,9 @@ for (const [id, collection] of Object.entries(manifest.collections)) {
   for (const artwork of artworks) {
     const entry = notes[id] && notes[id][String(artwork.number)];
     if (!entry) continue;
-    const { dimensions, ...note } = entry;
+    const { dimensions, strikethrough, ...note } = entry;
     if (dimensions) artwork.dimensions = dimensions;
+    if (strikethrough) artwork.noteStrikethrough = strikethrough;
     if (note.en || note.es) artwork.note = note;
   }
 
