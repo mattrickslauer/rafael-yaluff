@@ -330,7 +330,15 @@
             if (artwork.noteStrikethrough && artwork.noteStrikethrough.includes(lang)) {
               note.classList.add('strikethrough');
             }
-            note.textContent = '\u2020 ' + artwork.note[lang].replace(/\s+/g, ' ').trim();
+            const noteText = artwork.note[lang].replace(/\s+/g, ' ').trim();
+            const footnoteIndex = noteText.indexOf('*');
+            if (footnoteIndex >= 0) {
+              note.append(document.createTextNode('\u2020 ' + noteText.slice(0, footnoteIndex).trimEnd()));
+              note.append(document.createElement('br'));
+              note.append(document.createTextNode(noteText.slice(footnoteIndex)));
+            } else {
+              note.textContent = '\u2020 ' + noteText;
+            }
             info.appendChild(note);
           }
 
