@@ -95,6 +95,21 @@
         background: #ffffff;
       }
 
+      .instagram-link {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        color: #000000;
+        text-decoration: none;
+        font-size: clamp(1rem, 2vw, 1.8rem);
+        letter-spacing: 0.04em;
+        transition: opacity 0.2s ease;
+      }
+
+      .instagram-link:hover {
+        opacity: 0.6;
+      }
+
       @media (max-width: 640px) {
         .nav {
           width: 100%;
@@ -113,7 +128,6 @@
         <a href="cv.html">CV</a>
         <a href="press.html">Press</a>
         <a href="bio-and-statement.html">Bio/Statement</a>
-        <a href="https://www.instagram.com/xoltzpopov/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <details class="nav-dropdown">
           <summary>Artwork/Archive</summary>
           <div class="nav-menu">
@@ -123,5 +137,6 @@
         </details>
       </nav>
     </div>
+    <a class="instagram-link" href="https://www.instagram.com/xoltzpopov/" target="_blank" rel="noopener noreferrer">Instagram</a>
   </body>
 </html>
