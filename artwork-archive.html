@@ -136,6 +136,10 @@
         line-height: 1.5;
       }
 
+      .note.strikethrough {
+        text-decoration: line-through;
+      }
+
       .description {
         margin-top: 12px;
         margin-bottom: 12px;
@@ -323,6 +327,9 @@
           if (artwork.note && artwork.note[lang]) {
             const note = document.createElement('p');
             note.className = 'note';
+            if (artwork.noteStrikethrough && artwork.noteStrikethrough.includes(lang)) {
+              note.classList.add('strikethrough');
+            }
             note.textContent = '\u2020 ' + artwork.note[lang].replace(/\s+/g, ' ').trim();
             info.appendChild(note);
           }
