@@ -323,7 +323,7 @@
           if (artwork.note && artwork.note[lang]) {
             const note = document.createElement('p');
             note.className = 'note';
-            note.textContent = artwork.note[lang];
+            note.textContent = '\u2020 ' + artwork.note[lang];
             info.appendChild(note);
           }
 
