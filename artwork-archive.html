@@ -57,6 +57,14 @@
         text-align: center;
       }
 
+      .intro.patagonia {
+        max-width: 650px;
+      }
+
+      .intro.patagonia p {
+        text-align: justify;
+      }
+
       .intro h2 {
         font-size: 0.9rem;
         font-weight: 700;
@@ -268,6 +276,7 @@
           button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
         });
 
+        intro.classList.toggle('patagonia', collectionId === 'patagonia-2011-2015');
         intro.replaceChildren();
         const introText = collection && collection.intro ? collection.intro[lang] : '';
         if (introText) {
