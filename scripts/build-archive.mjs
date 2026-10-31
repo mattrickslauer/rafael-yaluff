@@ -6,7 +6,7 @@
 // The number may be decimal (e.g. 2.5) to slot an image between two others.
 // Dimensions and year may also be given per language:
 //   1__Title EN__Título ES__Medium EN__Medio ES__Dims EN__Dims ES__Year EN__Year ES.jpg
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -14,6 +14,10 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const manifestPath = join(root, 'artwork-archive.json');
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+// Optional notes shown under an image's details (e.g. a translation of text written in the
+// painting): { "<collection id>": { "<image number>": { "en": "...", "es": "..." } } }
+const notesPath = join(root, 'artwork-notes.json');
+const notes = existsSync(notesPath) ? JSON.parse(readFileSync(notesPath, 'utf8')) : {};
 const errors = [];
 
 for (const [id, collection] of Object.entries(manifest.collections)) {
@@ -43,6 +47,11 @@ for (const [id, collection] of Object.entries(manifest.collections)) {
       dimensions: perLanguage ? { en: fields[4], es: fields[5] } : { en: fields[4], es: fields[4] },
       year: perLanguage ? { en: fields[6], es: fields[7] } : { en: fields[5], es: fields[5] }
     });
+  }
+
+  for (const artwork of artworks) {
+    const note = notes[id] && notes[id][String(artwork.number)];
+    if (note) artwork.note = note;
   }
 
   artworks.sort((a, b) => a.number - b.number);

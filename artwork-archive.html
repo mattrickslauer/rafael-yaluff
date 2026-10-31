@@ -126,6 +126,16 @@
         color: #555555;
       }
 
+      .note {
+        max-width: 300px;
+        margin: 10px 0 0 auto;
+        text-align: right;
+        color: #555555;
+        font-size: 0.8rem;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
       .description {
         margin-top: 12px;
         margin-bottom: 12px;
@@ -309,6 +319,13 @@
             .filter(Boolean)
             .join(' | ');
           info.appendChild(meta);
+
+          if (artwork.note && artwork.note[lang]) {
+            const note = document.createElement('p');
+            note.className = 'note';
+            note.textContent = artwork.note[lang];
+            info.appendChild(note);
+          }
 
           card.appendChild(info);
           gallery.appendChild(card);
