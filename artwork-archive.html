@@ -127,7 +127,7 @@
       }
 
       .note {
-        max-width: 300px;
+        max-width: 200px;
         margin: 10px 0 0 auto;
         text-align: right;
         color: #555555;
@@ -323,7 +323,7 @@
           if (artwork.note && artwork.note[lang]) {
             const note = document.createElement('p');
             note.className = 'note';
-            note.textContent = artwork.note[lang];
+            note.textContent = '\u2020 ' + artwork.note[lang];
             info.appendChild(note);
           }
 
