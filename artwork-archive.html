@@ -65,6 +65,10 @@
         text-align: justify;
       }
 
+      .intro.new-york p {
+        text-align: justify;
+      }
+
       .intro h2 {
         font-size: 0.9rem;
         font-weight: 700;
@@ -277,6 +281,7 @@
         });
 
         intro.classList.toggle('patagonia', collectionId === 'patagonia-2011-2015');
+        intro.classList.toggle('new-york', collectionId === 'new-york-2021-2024');
         intro.replaceChildren();
         const introText = collection && collection.intro ? collection.intro[lang] : '';
         if (introText) {
