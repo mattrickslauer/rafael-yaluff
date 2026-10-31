@@ -130,7 +130,6 @@
         max-width: 200px;
         margin: 10px 0 0 auto;
         text-align: right;
-        white-space: pre-line;
         color: #555555;
         font-size: 0.8rem;
         font-style: italic;
@@ -324,7 +323,7 @@
           if (artwork.note && artwork.note[lang]) {
             const note = document.createElement('p');
             note.className = 'note';
-            note.textContent = '\u2020 ' + artwork.note[lang];
+            note.textContent = '\u2020 ' + artwork.note[lang].replace(/\s+/g, ' ').trim();
             info.appendChild(note);
           }
 
