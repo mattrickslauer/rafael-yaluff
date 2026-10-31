@@ -345,7 +345,13 @@
           if (collection) {
             state = 'ready';
             document.title = `${collection.title} | Rafael Yaluff`;
-            document.getElementById('collection-title').textContent = collection.title;
+            const heading = document.getElementById('collection-title');
+            const match = collection.title.match(/^(.*?)\s+(\d{4}\s*-\s*\d{4})$/);
+            if (match) {
+              heading.append(match[1], document.createElement('br'), match[2]);
+            } else {
+              heading.textContent = collection.title;
+            }
           } else {
             state = 'notFound';
           }
